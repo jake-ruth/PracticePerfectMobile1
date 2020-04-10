@@ -9,13 +9,20 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject var session: SessionStore
+    
     var body: some View {
-        NavigationView {
+        VStack {
+            
             Color.surface.edgesIgnoringSafeArea(.all)
-                List{
-                    Text("aaah").foregroundColor(.white)
-                    Text("ah2").foregroundColor(.white)
-                }
+            List{
+                Text("aaah").foregroundColor(.white)
+                Text("ah2").foregroundColor(.white)
+            }
+            
+            Button(action: session.signOut) {
+                Text("Sign Out")
+            }
         }
     }
 }

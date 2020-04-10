@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,12 @@
 		8422F9B32440096C005501E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B22440096C005501E1 /* SettingsView.swift */; };
 		8422F9B524400988005501E1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B424400988005501E1 /* HomeView.swift */; };
 		8422F9B724400A38005501E1 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B624400A38005501E1 /* HostingController.swift */; };
+		84EEC35F2440B108005616B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EEC35E2440B108005616B4 /* GoogleService-Info.plist */; };
+		84EEC3612440B160005616B4 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3602440B160005616B4 /* SessionStore.swift */; };
+		84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3622440B6A9005616B4 /* AuthView.swift */; };
+		9AD3C627F21985D15FD0C61C /* Pods_PracticePerfectMobile1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0CBCB34C8E979495FA55CB /* Pods_PracticePerfectMobile1.framework */; };
+		C4B78F25843051FE3D1522CC /* Pods_PracticePerfectMobile1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854B842F5D2B4457B9CD56E6 /* Pods_PracticePerfectMobile1Tests.framework */; };
+		D219C9F76CF00B37077B2D4C /* Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DB2605C5126494FA65BD03 /* Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0522F1A44F01331CA1BD7117 /* Pods-PracticePerfectMobile1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1.release.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1/Pods-PracticePerfectMobile1.release.xcconfig"; sourceTree = "<group>"; };
+		4F0CBCB34C8E979495FA55CB /* Pods_PracticePerfectMobile1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticePerfectMobile1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52F22C7F9B36640AFA97818D /* Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.debug.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		58CA047AF7E5BDF7D1BAE393 /* Pods-PracticePerfectMobile1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1Tests.debug.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1Tests/Pods-PracticePerfectMobile1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8422F97A24400902005501E1 /* PracticePerfectMobile1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticePerfectMobile1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8422F97D24400902005501E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8422F97F24400902005501E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +69,14 @@
 		8422F9B22440096C005501E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8422F9B424400988005501E1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8422F9B624400A38005501E1 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		84EEC35E2440B108005616B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84EEC3602440B160005616B4 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		84EEC3622440B6A9005616B4 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		854B842F5D2B4457B9CD56E6 /* Pods_PracticePerfectMobile1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticePerfectMobile1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A77A1B868ED8292E291B63 /* Pods-PracticePerfectMobile1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1.debug.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1/Pods-PracticePerfectMobile1.debug.xcconfig"; sourceTree = "<group>"; };
+		91DB2605C5126494FA65BD03 /* Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABDC76AA050B5E6E9CDA2D6C /* Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.release.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.release.xcconfig"; sourceTree = "<group>"; };
+		F9D77C822E939860CD6D5484 /* Pods-PracticePerfectMobile1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1Tests.release.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1Tests/Pods-PracticePerfectMobile1Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD3C627F21985D15FD0C61C /* Pods_PracticePerfectMobile1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B78F25843051FE3D1522CC /* Pods_PracticePerfectMobile1Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +100,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D219C9F76CF00B37077B2D4C /* Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74D979B5FFEA8E572B0D5293 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F0CBCB34C8E979495FA55CB /* Pods_PracticePerfectMobile1.framework */,
+				91DB2605C5126494FA65BD03 /* Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework */,
+				854B842F5D2B4457B9CD56E6 /* Pods_PracticePerfectMobile1Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8422F97124400902005501E1 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +124,8 @@
 				8422F99624400903005501E1 /* PracticePerfectMobile1Tests */,
 				8422F9A124400903005501E1 /* PracticePerfectMobile1UITests */,
 				8422F97B24400902005501E1 /* Products */,
+				B0FD688C66A90CBCEEB4DD07 /* Pods */,
+				74D979B5FFEA8E572B0D5293 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,15 +145,18 @@
 				8422F97D24400902005501E1 /* AppDelegate.swift */,
 				8422F97F24400902005501E1 /* SceneDelegate.swift */,
 				8422F98424400902005501E1 /* ContentView.swift */,
+				84EEC3622440B6A9005616B4 /* AuthView.swift */,
 				8422F9B024400948005501E1 /* MyRoutinesView.swift */,
 				8422F9B424400988005501E1 /* HomeView.swift */,
 				8422F9B22440096C005501E1 /* SettingsView.swift */,
 				8422F98624400903005501E1 /* Assets.xcassets */,
 				8422F98B24400903005501E1 /* LaunchScreen.storyboard */,
 				8422F98E24400903005501E1 /* Info.plist */,
+				84EEC35E2440B108005616B4 /* GoogleService-Info.plist */,
 				8422F98124400902005501E1 /* PracticePerfectMobile1.xcdatamodeld */,
-				8422F98824400903005501E1 /* Preview Content */,
+				84EEC3602440B160005616B4 /* SessionStore.swift */,
 				8422F9B624400A38005501E1 /* HostingController.swift */,
+				8422F98824400903005501E1 /* Preview Content */,
 			);
 			path = PracticePerfectMobile1;
 			sourceTree = "<group>";
@@ -151,6 +187,19 @@
 			path = PracticePerfectMobile1UITests;
 			sourceTree = "<group>";
 		};
+		B0FD688C66A90CBCEEB4DD07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88A77A1B868ED8292E291B63 /* Pods-PracticePerfectMobile1.debug.xcconfig */,
+				0522F1A44F01331CA1BD7117 /* Pods-PracticePerfectMobile1.release.xcconfig */,
+				52F22C7F9B36640AFA97818D /* Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.debug.xcconfig */,
+				ABDC76AA050B5E6E9CDA2D6C /* Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.release.xcconfig */,
+				58CA047AF7E5BDF7D1BAE393 /* Pods-PracticePerfectMobile1Tests.debug.xcconfig */,
+				F9D77C822E939860CD6D5484 /* Pods-PracticePerfectMobile1Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8422F9A724400903005501E1 /* Build configuration list for PBXNativeTarget "PracticePerfectMobile1" */;
 			buildPhases = (
+				D86C1238F3DBAA21E891D40C /* [CP] Check Pods Manifest.lock */,
 				8422F97624400902005501E1 /* Sources */,
 				8422F97724400902005501E1 /* Frameworks */,
 				8422F97824400902005501E1 /* Resources */,
+				9235E49596D349951888F881 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,6 +226,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8422F9AA24400903005501E1 /* Build configuration list for PBXNativeTarget "PracticePerfectMobile1Tests" */;
 			buildPhases = (
+				3A6BCF7DB1E306A1715D6375 /* [CP] Check Pods Manifest.lock */,
 				8422F98F24400903005501E1 /* Sources */,
 				8422F99024400903005501E1 /* Frameworks */,
 				8422F99124400903005501E1 /* Resources */,
@@ -193,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8422F9AD24400903005501E1 /* Build configuration list for PBXNativeTarget "PracticePerfectMobile1UITests" */;
 			buildPhases = (
+				9BA6AA70C35960DFC8EA2613 /* [CP] Check Pods Manifest.lock */,
 				8422F99A24400903005501E1 /* Sources */,
 				8422F99B24400903005501E1 /* Frameworks */,
 				8422F99C24400903005501E1 /* Resources */,
+				68B7B5A9C352A458517635C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8422F98D24400903005501E1 /* LaunchScreen.storyboard in Resources */,
+				84EEC35F2440B108005616B4 /* GoogleService-Info.plist in Resources */,
 				8422F98A24400903005501E1 /* Preview Assets.xcassets in Resources */,
 				8422F98724400903005501E1 /* Assets.xcassets in Resources */,
 			);
@@ -277,6 +332,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3A6BCF7DB1E306A1715D6375 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PracticePerfectMobile1Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68B7B5A9C352A458517635C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9235E49596D349951888F881 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PracticePerfectMobile1/Pods-PracticePerfectMobile1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PracticePerfectMobile1/Pods-PracticePerfectMobile1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PracticePerfectMobile1/Pods-PracticePerfectMobile1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BA6AA70C35960DFC8EA2613 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D86C1238F3DBAA21E891D40C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PracticePerfectMobile1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8422F97624400902005501E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -287,6 +445,8 @@
 				8422F9B724400A38005501E1 /* HostingController.swift in Sources */,
 				8422F98024400902005501E1 /* SceneDelegate.swift in Sources */,
 				8422F98524400902005501E1 /* ContentView.swift in Sources */,
+				84EEC3612440B160005616B4 /* SessionStore.swift in Sources */,
+				84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */,
 				8422F9B32440096C005501E1 /* SettingsView.swift in Sources */,
 				8422F9B124400948005501E1 /* MyRoutinesView.swift in Sources */,
 				8422F98324400902005501E1 /* PracticePerfectMobile1.xcdatamodeld in Sources */,
@@ -452,6 +612,7 @@
 		};
 		8422F9A824400903005501E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88A77A1B868ED8292E291B63 /* Pods-PracticePerfectMobile1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -472,6 +633,7 @@
 		};
 		8422F9A924400903005501E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0522F1A44F01331CA1BD7117 /* Pods-PracticePerfectMobile1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -492,6 +654,7 @@
 		};
 		8422F9AB24400903005501E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58CA047AF7E5BDF7D1BAE393 /* Pods-PracticePerfectMobile1Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -514,6 +677,7 @@
 		};
 		8422F9AC24400903005501E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D77C822E939860CD6D5484 /* Pods-PracticePerfectMobile1Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -536,6 +700,7 @@
 		};
 		8422F9AE24400903005501E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52F22C7F9B36640AFA97818D /* Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -556,6 +721,7 @@
 		};
 		8422F9AF24400903005501E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABDC76AA050B5E6E9CDA2D6C /* Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

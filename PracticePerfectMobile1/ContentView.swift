@@ -9,8 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @EnvironmentObject var session: SessionStore
     @State private var selected = 1
+    
+    func getUser() {
+        session.listen()
+    }
+    
     
     // Sets the bottom tab background color
     init(){
@@ -19,28 +24,35 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView(selection: $selected) {
-            HomeView()
-                .tabItem({
-                    Image(systemName: "music.house.fill")
-                    Text("Home")
-                }).tag(0)
-            
-            MyRoutinesView()
-                .tabItem({
-                    Image(systemName: "music.note.list")
-                    Text("My Routines")
-                }).tag(1)
-            
-            SettingsView()
-                .tabItem({
-                    Image(systemName: "gear")
-                    Text("Settings")
-                }).tag(2)
-        }
-        .background(Color.black)
-        .accentColor(Color.primary)
-        .font(.headline)
+        Group {
+            if (session.session != nil) {
+                
+                TabView(selection: $selected) {
+                    HomeView()
+                        .tabItem({
+                            Image(systemName: "music.house.fill")
+                            Text("Home")
+                        }).tag(0)
+                    
+                    MyRoutinesView()
+                        .tabItem({
+                            Image(systemName: "music.note.list")
+                            Text("My Routines")
+                        }).tag(1)
+                    
+                    SettingsView()
+                        .tabItem({
+                            Image(systemName: "gear")
+                            Text("Settings")
+                        }).tag(2)
+                }
+                .background(Color.black)
+                .accentColor(Color.primary)
+                .font(.headline)
+            } else {
+                AuthView()
+            }
+        }.onAppear(perform: getUser)
     }
 }
 
@@ -54,6 +66,6 @@ extension Color {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(SessionStore())
     }
 }
