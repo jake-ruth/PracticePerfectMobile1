@@ -26,7 +26,6 @@ struct ContentView: View {
     var body: some View {
         Group {
             if (session.session != nil) {
-                
                 TabView(selection: $selected) {
                     HomeView()
                         .tabItem({

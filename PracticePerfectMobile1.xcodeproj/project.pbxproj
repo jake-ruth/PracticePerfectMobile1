@@ -23,6 +23,9 @@
 		84EEC35F2440B108005616B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EEC35E2440B108005616B4 /* GoogleService-Info.plist */; };
 		84EEC3612440B160005616B4 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3602440B160005616B4 /* SessionStore.swift */; };
 		84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3622440B6A9005616B4 /* AuthView.swift */; };
+		84EEC3662440D194005616B4 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3652440D194005616B4 /* SignInView.swift */; };
+		84EEC3682440D1D1005616B4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3672440D1D1005616B4 /* SignUpView.swift */; };
+		84EEC36B2440DF80005616B4 /* QuickRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC36A2440DF80005616B4 /* QuickRoutineView.swift */; };
 		9AD3C627F21985D15FD0C61C /* Pods_PracticePerfectMobile1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0CBCB34C8E979495FA55CB /* Pods_PracticePerfectMobile1.framework */; };
 		C4B78F25843051FE3D1522CC /* Pods_PracticePerfectMobile1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854B842F5D2B4457B9CD56E6 /* Pods_PracticePerfectMobile1Tests.framework */; };
 		D219C9F76CF00B37077B2D4C /* Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91DB2605C5126494FA65BD03 /* Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework */; };
@@ -72,6 +75,9 @@
 		84EEC35E2440B108005616B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84EEC3602440B160005616B4 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		84EEC3622440B6A9005616B4 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		84EEC3652440D194005616B4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		84EEC3672440D1D1005616B4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		84EEC36A2440DF80005616B4 /* QuickRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickRoutineView.swift; sourceTree = "<group>"; };
 		854B842F5D2B4457B9CD56E6 /* Pods_PracticePerfectMobile1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticePerfectMobile1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A77A1B868ED8292E291B63 /* Pods-PracticePerfectMobile1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1.debug.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1/Pods-PracticePerfectMobile1.debug.xcconfig"; sourceTree = "<group>"; };
 		91DB2605C5126494FA65BD03 /* Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticePerfectMobile1_PracticePerfectMobile1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,10 +148,11 @@
 		8422F97C24400902005501E1 /* PracticePerfectMobile1 */ = {
 			isa = PBXGroup;
 			children = (
+				84EEC3692440DF73005616B4 /* QuickRoutine */,
+				84EEC3642440D174005616B4 /* AuthViews */,
 				8422F97D24400902005501E1 /* AppDelegate.swift */,
 				8422F97F24400902005501E1 /* SceneDelegate.swift */,
 				8422F98424400902005501E1 /* ContentView.swift */,
-				84EEC3622440B6A9005616B4 /* AuthView.swift */,
 				8422F9B024400948005501E1 /* MyRoutinesView.swift */,
 				8422F9B424400988005501E1 /* HomeView.swift */,
 				8422F9B22440096C005501E1 /* SettingsView.swift */,
@@ -185,6 +192,24 @@
 				8422F9A424400903005501E1 /* Info.plist */,
 			);
 			path = PracticePerfectMobile1UITests;
+			sourceTree = "<group>";
+		};
+		84EEC3642440D174005616B4 /* AuthViews */ = {
+			isa = PBXGroup;
+			children = (
+				84EEC3622440B6A9005616B4 /* AuthView.swift */,
+				84EEC3652440D194005616B4 /* SignInView.swift */,
+				84EEC3672440D1D1005616B4 /* SignUpView.swift */,
+			);
+			path = AuthViews;
+			sourceTree = "<group>";
+		};
+		84EEC3692440DF73005616B4 /* QuickRoutine */ = {
+			isa = PBXGroup;
+			children = (
+				84EEC36A2440DF80005616B4 /* QuickRoutineView.swift */,
+			);
+			path = QuickRoutine;
 			sourceTree = "<group>";
 		};
 		B0FD688C66A90CBCEEB4DD07 /* Pods */ = {
@@ -442,13 +467,16 @@
 			files = (
 				8422F97E24400902005501E1 /* AppDelegate.swift in Sources */,
 				8422F9B524400988005501E1 /* HomeView.swift in Sources */,
+				84EEC36B2440DF80005616B4 /* QuickRoutineView.swift in Sources */,
 				8422F9B724400A38005501E1 /* HostingController.swift in Sources */,
 				8422F98024400902005501E1 /* SceneDelegate.swift in Sources */,
+				84EEC3682440D1D1005616B4 /* SignUpView.swift in Sources */,
 				8422F98524400902005501E1 /* ContentView.swift in Sources */,
 				84EEC3612440B160005616B4 /* SessionStore.swift in Sources */,
 				84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */,
 				8422F9B32440096C005501E1 /* SettingsView.swift in Sources */,
 				8422F9B124400948005501E1 /* MyRoutinesView.swift in Sources */,
+				84EEC3662440D194005616B4 /* SignInView.swift in Sources */,
 				8422F98324400902005501E1 /* PracticePerfectMobile1.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,6 +648,7 @@
 				DEVELOPMENT_TEAM = XGH66HW2PT;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PracticePerfectMobile1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -641,6 +670,7 @@
 				DEVELOPMENT_TEAM = XGH66HW2PT;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PracticePerfectMobile1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -24,8 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-//        let contentView = ContentView().environment(\.managedObjectContext, context)
-        let contentView = ContentView()
+        let contentView = ContentView().environment(\.managedObjectContext, context)
+        //let contentView = ContentView()
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -35,6 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: contentView.environmentObject(SessionStore())) //Jake changed this
             self.window = window
             window.makeKeyAndVisible()
+            window.tintColor = UIColor.white
         }
     }
     
