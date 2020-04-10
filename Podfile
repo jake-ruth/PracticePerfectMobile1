@@ -8,6 +8,8 @@ target 'PracticePerfectMobile1' do
   # Pods for PracticePerfectMobile1
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'AudioKit', '~> 4.0'
 
 
 

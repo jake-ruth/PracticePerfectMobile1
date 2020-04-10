@@ -7,13 +7,18 @@
 //
 
 import SwiftUI
+import FirebaseDatabase
 
 struct ContentView: View {
     @EnvironmentObject var session: SessionStore
     @State private var selected = 1
+
+    var ref: DatabaseReference! = Database.database().reference()
     
     func getUser() {
         session.listen()
+        
+        self.ref.child("users").child("test").setValue(["username" : "TEST"])
     }
     
     
@@ -39,11 +44,18 @@ struct ContentView: View {
                             Text("My Routines")
                         }).tag(1)
                     
+                    MetronomeView()
+                        .tabItem({
+                            Image(systemName: "music.note")
+                            Text("Tools")
+                        }).tag(2)
+                    
                     SettingsView()
                         .tabItem({
                             Image(systemName: "gear")
                             Text("Settings")
-                        }).tag(2)
+                        }).tag(3)
+                    
                 }
                 .background(Color.black)
                 .accentColor(Color.primary)

@@ -34,23 +34,30 @@ struct SignInView: View {
                 Image("PracticePerfectLogo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 120.0, height: 120, alignment: .top)
+                    .frame(width: 110.0, height: 110, alignment: .top)
                 
                 VStack(spacing: 18) {
+                    if (error != "") {
+                        Text(error)
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(.red)
+                        
+                        
+                    }
                     TextField("Email address", text: $email)
-                        .font(.system(size: 14))
-                        .padding(12)
+                        .font(.system(size: 20))
+                        .padding(8)
                         .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
                         .foregroundColor(Color(.white))
                     
                     SecureField("Password", text: $password)
-                        .font(.system(size: 14))
-                        .padding(12)
+                        .font(.system(size: 20))
+                        .padding(8)
                         .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
                         .foregroundColor(Color(.white))
                     
                 }
-                .padding(.vertical, 64)
+                .padding(.vertical, 50)
                 
                 Button(action: signIn){
                     Text("Sign in")
@@ -66,22 +73,12 @@ struct SignInView: View {
                 
                 NavigationLink(destination: QuickRoutineView()){
                     Text("Quick Routine")
-                     .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 40)
                         .foregroundColor(.white)
                         .font(.system(size: 14, weight: .bold))
                         .background(Color.secondary)
                         .cornerRadius(5)
-                }
-                
-                
-                if (error != "") {
-                    Text(error)
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundColor(.red)
-                        .padding()
-                    
-                    
                 }
                 
                 Spacer()

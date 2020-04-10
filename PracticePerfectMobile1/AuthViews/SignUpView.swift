@@ -34,14 +34,21 @@ struct SignUpView: View {
                     .font(.system(size: 32, weight: .heavy))
                     .foregroundColor(Color(.white))
                 
+                if (error != ""){
+                    Text(error)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.red)
+                        .padding()
+                }
+                
                 VStack(spacing: 18) {
                     TextField("Email address", text: $email)
-                        .font(.system(size: 14))
+                        .font(.system(size: 20))
                         .padding(12)
                         .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
                     
                     SecureField("Password", text: $password)
-                        .font(.system(size: 14))
+                        .font(.system(size: 20))
                         .padding(12)
                         .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
                 }.padding(.vertical, 64)
@@ -49,19 +56,12 @@ struct SignUpView: View {
                 Button(action: signUp) {
                     Text("Create Account")
                         .frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(height: 50)
+                        .frame(height: 40)
                         .foregroundColor(.white)
                         .font(.system(size: 14, weight: .bold))
                         .background(Color.primary)
                         .cornerRadius(5)
                     
-                }
-                
-                if (error != ""){
-                    Text(error)
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundColor(.red)
-                        .padding()
                 }
                 
                 Spacer()
