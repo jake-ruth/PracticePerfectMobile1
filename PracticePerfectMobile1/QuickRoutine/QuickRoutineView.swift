@@ -7,11 +7,67 @@
 //
 
 import SwiftUI
+import Combine
+
+class ListDataSource: ObservableObject {
+    var objectWillChange = PassthroughSubject<Void, Never>()
+    
+    // Every time something changes in the row models array, calls willSet
+    var rowModels = [CustomRowModel]() {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    init() {
+        addNewModel(withName: "TestItem1", details: "this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!", minutes: 1)
+        addNewModel(withName: "TestItem2", details: "this is my test item here 2!", minutes: 2)
+    }
+    
+    private func addNewModel(withName title: String, details: String, minutes: Int){
+        let model = CustomRowModel(id: title, title: title, details: details, minutes: minutes, isExpanded: false)
+        rowModels.append(model)
+    }
+}
 
 struct QuickRoutineView: View {
+    
+    // Binds to something in a different class
+    @ObservedObject var dataSource = ListDataSource() // Gets initialized, then automatically makes our models
+    
     var body: some View {
-        Text("Quick Routine").foregroundColor(Color(.white))
+        List(dataSource.rowModels) { model in
+            CustomRow(model: model)
+        }
     }
+}
+
+struct CustomRow: View {
+    @State var model: CustomRowModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Button(action: { self.model.isExpanded.toggle() }){
+                Text(model.title)
+                .font(.system(size: 20, weight: .bold))
+            }
+            
+            if (model.isExpanded) {
+                Text(model.details)
+                .lineLimit(nil)
+            } else {
+                EmptyView()
+            }
+        }
+    }
+}
+
+struct CustomRowModel: Identifiable {
+    var id = UUID().uuidString
+    var title: String
+    var details: String
+    var minutes: Int
+    var isExpanded: Bool
 }
 
 struct QuickRoutineView_Previews: PreviewProvider {

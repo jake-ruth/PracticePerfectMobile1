@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8412E97F2441FE1800637FFC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412E97E2441FE1800637FFC /* CustomTextField.swift */; };
+		8412E9812442042100637FFC /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412E9802442042100637FFC /* CustomSecureField.swift */; };
 		8422F97E24400902005501E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F97D24400902005501E1 /* AppDelegate.swift */; };
 		8422F98024400902005501E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F97F24400902005501E1 /* SceneDelegate.swift */; };
 		8422F98324400902005501E1 /* PracticePerfectMobile1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8422F98124400902005501E1 /* PracticePerfectMobile1.xcdatamodeld */; };
@@ -54,6 +56,8 @@
 		4F0CBCB34C8E979495FA55CB /* Pods_PracticePerfectMobile1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticePerfectMobile1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F22C7F9B36640AFA97818D /* Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.debug.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests/Pods-PracticePerfectMobile1-PracticePerfectMobile1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		58CA047AF7E5BDF7D1BAE393 /* Pods-PracticePerfectMobile1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticePerfectMobile1Tests.debug.xcconfig"; path = "Target Support Files/Pods-PracticePerfectMobile1Tests/Pods-PracticePerfectMobile1Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		8412E97E2441FE1800637FFC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		8412E9802442042100637FFC /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		8422F97A24400902005501E1 /* PracticePerfectMobile1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticePerfectMobile1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8422F97D24400902005501E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8422F97F24400902005501E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8412E9822442053C00637FFC /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				8412E97E2441FE1800637FFC /* CustomTextField.swift */,
+				8412E9802442042100637FFC /* CustomSecureField.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
 		8422F97124400902005501E1 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +163,7 @@
 		8422F97C24400902005501E1 /* PracticePerfectMobile1 */ = {
 			isa = PBXGroup;
 			children = (
+				8412E9822442053C00637FFC /* CustomComponents */,
 				84EEC36C2440E904005616B4 /* Metronome */,
 				84EEC3692440DF73005616B4 /* QuickRoutine */,
 				84EEC3642440D174005616B4 /* AuthViews */,
@@ -484,12 +498,14 @@
 				8422F98024400902005501E1 /* SceneDelegate.swift in Sources */,
 				84EEC3682440D1D1005616B4 /* SignUpView.swift in Sources */,
 				8422F98524400902005501E1 /* ContentView.swift in Sources */,
+				8412E9812442042100637FFC /* CustomSecureField.swift in Sources */,
 				84EEC3612440B160005616B4 /* SessionStore.swift in Sources */,
 				84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */,
 				8422F9B32440096C005501E1 /* SettingsView.swift in Sources */,
 				8422F9B124400948005501E1 /* MyRoutinesView.swift in Sources */,
 				84EEC3662440D194005616B4 /* SignInView.swift in Sources */,
 				8422F98324400902005501E1 /* PracticePerfectMobile1.xcdatamodeld in Sources */,
+				8412E97F2441FE1800637FFC /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

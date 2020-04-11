@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct SignInView: View {
-    @State var email: String = ""
-    @State var password: String = ""
+    @State var email: String = "initial"
+    @State var password: String = "initial"
     @State var error: String = ""
     @EnvironmentObject var session: SessionStore
     
@@ -33,34 +33,30 @@ struct SignInView: View {
             VStack {
                 Image("PracticePerfectLogo")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 110.0, height: 110, alignment: .top)
+                    .frame(width: 105, height: 105)
                 
-                VStack(spacing: 18) {
+                VStack(spacing: 15) {
+                    
                     if (error != "") {
                         Text(error)
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(.red)
-                        
-                        
                     }
-                    TextField("Email address", text: $email)
-                        .font(.system(size: 20))
-                        .padding(8)
-                        .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
-                        .foregroundColor(Color(.white))
                     
-                    SecureField("Password", text: $password)
-                        .font(.system(size: 20))
-                        .padding(8)
-                        .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
-                        .foregroundColor(Color(.white))
+                    CustomTextField(
+                        placeholder: Text("Email").foregroundColor(.gray).font(.system(size: 20)),
+                        text: $email
+                    ).onAppear(perform: {self.email = ""})
                     
+                    CustomSecureField(
+                        placeholder: Text("Password").foregroundColor(.gray).font(.system(size: 20)),
+                        text: $password
+                    ).onAppear(perform: {self.password = ""})
                 }
-                .padding(.vertical, 50)
+                .padding(.vertical, 40)
                 
                 Button(action: signIn){
-                    Text("Sign in")
+                    Text("SIGN IN")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 40)
                         .foregroundColor(.white)
@@ -69,10 +65,10 @@ struct SignInView: View {
                         .cornerRadius(5)
                 }
                 
-                Text("or...").foregroundColor(.white).padding()
+                Text("or...").foregroundColor(.white).padding(5)
                 
                 NavigationLink(destination: QuickRoutineView()){
-                    Text("Quick Routine")
+                    Text("QUICK ROUTINE")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 40)
                         .foregroundColor(.white)
@@ -93,10 +89,25 @@ struct SignInView: View {
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(.white)
                         
-                    }.padding()
+                    }.padding(.bottom, 30)
                 }
             }
             .padding(.horizontal, 32)
+        }.modifier(DismissingKeyboard())
+    }
+}
+
+struct DismissingKeyboard: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .onTapGesture {
+                let keyWindow = UIApplication.shared.connectedScenes
+                        .filter({$0.activationState == .foregroundActive})
+                        .map({$0 as? UIWindowScene})
+                        .compactMap({$0})
+                        .first?.windows
+                        .filter({$0.isKeyWindow}).first
+                keyWindow?.endEditing(true)
         }
     }
 }

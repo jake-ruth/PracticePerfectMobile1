@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State var email: String = ""
-    @State var password: String = ""
+    @State var email: String = "initial"
+    @State var password: String = "initial"
     @State var error: String = ""
     @EnvironmentObject var session: SessionStore
     
@@ -34,25 +34,27 @@ struct SignUpView: View {
                     .font(.system(size: 32, weight: .heavy))
                     .foregroundColor(Color(.white))
                 
-                if (error != ""){
-                    Text(error)
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundColor(.red)
-                        .padding()
-                }
-                
                 VStack(spacing: 18) {
-                    TextField("Email address", text: $email)
-                        .font(.system(size: 20))
-                        .padding(12)
-                        .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
+                    if (error != "") {
+                        Text(error)
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(.red)
+                    }
                     
-                    SecureField("Password", text: $password)
-                        .font(.system(size: 20))
-                        .padding(12)
-                        .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
-                }.padding(.vertical, 64)
-                
+                    CustomTextField(
+                        placeholder: Text("Email").foregroundColor(.gray).font(.system(size: 20)),
+                        text: $email
+                    ).onAppear(perform: {self.email = ""})
+                    
+                    CustomSecureField(
+                        placeholder: Text("Password").foregroundColor(.gray).font(.system(size: 20)),
+                        text: $password
+                    ).onAppear(perform: {self.password = ""})
+                    
+                    
+                    
+                }
+                    
                 Button(action: signUp) {
                     Text("Create Account")
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -61,10 +63,8 @@ struct SignUpView: View {
                         .font(.system(size: 14, weight: .bold))
                         .background(Color.primary)
                         .cornerRadius(5)
-                    
                 }
-                
-                Spacer()
+        
             }.padding(.horizontal, 32)
             
         }
