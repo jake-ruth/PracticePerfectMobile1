@@ -18,6 +18,7 @@ struct ContentView: View {
     func getUser() {
         session.listen()
         
+        // Firebase test
         self.ref.child("users").child("test").setValue(["username" : "TEST"])
     }
     
@@ -34,9 +35,9 @@ struct ContentView: View {
                 TabView(selection: $selected) {
                     HomeView()
                         .tabItem({
-                            Image(systemName: "music.house.fill")
+                            Image(systemName: "music.house.fill").foregroundColor(.white)
                             Text("Home")
-                        }).tag(0)
+                        }).tag(0).foregroundColor(.white)
                     
                     MyRoutinesView()
                         .tabItem({

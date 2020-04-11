@@ -34,11 +34,17 @@ struct QuickRoutineView: View {
     
     // Binds to something in a different class
     @ObservedObject var dataSource = ListDataSource() // Gets initialized, then automatically makes our models
+    @State var addPracticeItem = false
     
     var body: some View {
         List(dataSource.rowModels) { model in
             CustomRow(model: model)
-        }
+        }.navigationBarItems(trailing:
+            Button(action: {
+                self.addPracticeItem.toggle()
+            }){
+                Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
+        }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem) })
     }
 }
 
@@ -49,12 +55,12 @@ struct CustomRow: View {
         VStack(alignment: .leading) {
             Button(action: { self.model.isExpanded.toggle() }){
                 Text(model.title)
-                .font(.system(size: 20, weight: .bold))
+                    .font(.system(size: 20, weight: .bold))
             }
             
             if (model.isExpanded) {
                 Text(model.details)
-                .lineLimit(nil)
+                    .lineLimit(nil)
             } else {
                 EmptyView()
             }
