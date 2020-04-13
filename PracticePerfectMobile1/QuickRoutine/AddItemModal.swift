@@ -10,12 +10,20 @@ import SwiftUI
 
 struct AddItemModal: View {
     @Binding var showModal: Bool
+    //@State @Binding var newPracticeItems: Array<NewPracticeItem>
     @State var title: String = "initial"
     @State var details: String = "initial"
     @State var minutes: Int = 1
     
     
-    var minuteOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    var minuteOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    
+    func createNewItem(){
+        let newItem = CustomRowModel(title: title, details: details, minutes: minutes, isExpanded: false)
+//        newPracticeItems.append(newItem)
+        print(newItem)
+        showModal = false
+    }
     
     var body: some View {
         Section(header: Text("Add Practice Item").font(.system(size: 30, weight: .semibold))) {
@@ -23,12 +31,12 @@ struct AddItemModal: View {
                 CustomTextField(
                     placeholder: Text("Title").foregroundColor(.gray).font(.system(size: 20)),
                     text: $title
-                ).onAppear(perform: {self.title = ""}).padding(.vertical, 30)
+                ).onAppear(perform: {self.title = ""}).padding(.vertical, 30).padding(.horizontal, 10)
                 
                 CustomTextField(
                     placeholder: Text("Details").foregroundColor(.gray).font(.system(size: 20)),
                     text: $details
-                ).onAppear(perform: {self.details = ""})
+                ).onAppear(perform: {self.details = ""}).padding(.horizontal, 10)
                 
                 Picker(selection: $minutes, label: Text("")) {
                     ForEach(0 ..< minuteOptions.count) {
@@ -48,7 +56,7 @@ struct AddItemModal: View {
                             .padding(20)
                     }
                     
-                    Button(action: {print("Create new item")}){
+                    Button(action: {self.createNewItem()}){
                         Text("Add")
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .frame(height: 40)
@@ -66,8 +74,15 @@ struct AddItemModal: View {
     }
 }
 
-struct AddItemModal_Previews: PreviewProvider {
-    static var previews: some View {
-        AddItemModal(showModal: .constant(true))
-    }
+class NewPracticeItem: ObservableObject {
+    var id = UUID().uuidString
+    var title: String = ""
+    var details: String = ""
+    var minutes: Int = 1
 }
+
+//struct AddItemModal_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddItemModal(showModal: .constant(true), newPracticeItems: Array<NewPracticeItem>)
+//    }
+//}

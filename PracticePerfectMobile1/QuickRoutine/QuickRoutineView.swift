@@ -11,7 +11,6 @@ import Combine
 
 class ListDataSource: ObservableObject {
     var objectWillChange = PassthroughSubject<Void, Never>()
-    
     // Every time something changes in the row models array, calls willSet
     var rowModels = [CustomRowModel]() {
         willSet {
@@ -20,11 +19,10 @@ class ListDataSource: ObservableObject {
     }
     
     init() {
-        addNewModel(withName: "TestItem1", details: "this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!this is my test item here!", minutes: 1)
-        addNewModel(withName: "TestItem2", details: "this is my test item here 2!", minutes: 2)
+        
     }
     
-    private func addNewModel(withName title: String, details: String, minutes: Int){
+    public func addNewModel(withName title: String, details: String, minutes: Int){
         let model = CustomRowModel(id: title, title: title, details: details, minutes: minutes, isExpanded: false)
         rowModels.append(model)
     }
@@ -33,19 +31,21 @@ class ListDataSource: ObservableObject {
 struct QuickRoutineView: View {
     
     // Binds to something in a different class
-    @ObservedObject var dataSource = ListDataSource() // Gets initialized, then automatically makes our models
+    @ObservedObject var practiceItems = ListDataSource() // Gets initialized, then automatically makes our models
     @State var addPracticeItem = false
+    //@ObservedObject var newPracticeItems = Array<NewPracticeItem>()
     
     var body: some View {
-        List(dataSource.rowModels) { model in
+        List(practiceItems.rowModels) { model in
             CustomRow(model: model)
         }.navigationBarItems(trailing:
             Button(action: {
                 self.addPracticeItem.toggle()
             }){
                 Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
-        }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem) })
+        }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem ) })
     }
+    
 }
 
 struct CustomRow: View {
@@ -76,8 +76,8 @@ struct CustomRowModel: Identifiable {
     var isExpanded: Bool
 }
 
-struct QuickRoutineView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuickRoutineView()
-    }
-}
+//struct QuickRoutineView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuickRoutineView()
+//    }
+//}
