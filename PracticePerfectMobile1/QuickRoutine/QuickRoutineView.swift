@@ -9,75 +9,48 @@
 import SwiftUI
 import Combine
 
-class ListDataSource: ObservableObject {
-    var objectWillChange = PassthroughSubject<Void, Never>()
+class PracticeItems: ObservableObject {
+    var objectWillChange = ObservableObjectPublisher()
     // Every time something changes in the row models array, calls willSet
     var rowModels = [CustomRowModel]() {
         willSet {
-            objectWillChange.send()
+            self.objectWillChange.send()
         }
     }
     
-    init() {
-        
+    func addNewRow(model: CustomRowModel){
+        let practiceItemRow = CustomRowModel(id: model.title, title: model.title, details: model.details, minutes: model.minutes, isExpanded: false)
+        self.rowModels.append(practiceItemRow)
     }
     
-    public func addNewModel(withName title: String, details: String, minutes: Int){
-        let model = CustomRowModel(id: title, title: title, details: details, minutes: minutes, isExpanded: false)
-        rowModels.append(model)
+    func removeRow(uuid: String){
+        guard let index = self.rowModels.firstIndex(where: {$0.id == uuid}) else {return}
+        self.rowModels.remove(at: index)
     }
 }
 
 struct QuickRoutineView: View {
-    
-    // Binds to something in a different class
-    @ObservedObject var practiceItems = ListDataSource() // Gets initialized, then automatically makes our models
+    @ObservedObject var practiceItems = PracticeItems()
     @State var addPracticeItem = false
-    //@ObservedObject var newPracticeItems = Array<NewPracticeItem>()
+    @State var index = 0
     
     var body: some View {
-        List(practiceItems.rowModels) { model in
-            CustomRow(model: model)
-        }.navigationBarItems(trailing:
-            Button(action: {
-                self.addPracticeItem.toggle()
-            }){
-                Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
-        }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem ) })
-    }
-    
-}
-
-struct CustomRow: View {
-    @State var model: CustomRowModel
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Button(action: { self.model.isExpanded.toggle() }){
-                Text(model.title)
-                    .font(.system(size: 20, weight: .bold))
-            }
-            
-            if (model.isExpanded) {
-                Text(model.details)
-                    .lineLimit(nil)
-            } else {
-                EmptyView()
-            }
+        VStack {
+            List(practiceItems.rowModels) { model in
+                CustomRow(model: model, practiceItems: self.practiceItems)
+            }.navigationBarItems(trailing:
+                Button(action: {
+                    self.addPracticeItem.toggle()
+                }){
+                    Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
+                }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem, practiceItems: self.practiceItems ) })
         }
     }
+    
 }
 
-struct CustomRowModel: Identifiable {
-    var id = UUID().uuidString
-    var title: String
-    var details: String
-    var minutes: Int
-    var isExpanded: Bool
+struct QuickRoutineView_Previews: PreviewProvider {
+    static var previews: some View {
+        QuickRoutineView()
+    }
 }
-
-//struct QuickRoutineView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        QuickRoutineView()
-//    }
-//}

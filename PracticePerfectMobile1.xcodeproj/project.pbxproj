@@ -26,6 +26,8 @@
 		8455A8112443A9D80049D5A5 /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8455A8102443A9D80049D5A5 /* tick.wav */; };
 		8455A8132443AFC40049D5A5 /* mainTick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8455A8122443AFC30049D5A5 /* mainTick.wav */; };
 		8455A8152443AFCB0049D5A5 /* secondaryTick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8455A8142443AFCB0049D5A5 /* secondaryTick.wav */; };
+		84756072244515A5005D2FEA /* CustomRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84756071244515A5005D2FEA /* CustomRowModel.swift */; };
+		8475607424452010005D2FEA /* CustomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475607324452010005D2FEA /* CustomRow.swift */; };
 		84EEC35F2440B108005616B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EEC35E2440B108005616B4 /* GoogleService-Info.plist */; };
 		84EEC3612440B160005616B4 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3602440B160005616B4 /* SessionStore.swift */; };
 		84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3622440B6A9005616B4 /* AuthView.swift */; };
@@ -85,6 +87,8 @@
 		8455A8102443A9D80049D5A5 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		8455A8122443AFC30049D5A5 /* mainTick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mainTick.wav; sourceTree = "<group>"; };
 		8455A8142443AFCB0049D5A5 /* secondaryTick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = secondaryTick.wav; sourceTree = "<group>"; };
+		84756071244515A5005D2FEA /* CustomRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRowModel.swift; sourceTree = "<group>"; };
+		8475607324452010005D2FEA /* CustomRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRow.swift; sourceTree = "<group>"; };
 		84EEC35E2440B108005616B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84EEC3602440B160005616B4 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		84EEC3622440B6A9005616B4 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 			children = (
 				84EEC36A2440DF80005616B4 /* QuickRoutineView.swift */,
 				8455A80C24425AB80049D5A5 /* AddItemModal.swift */,
+				84756071244515A5005D2FEA /* CustomRowModel.swift */,
+				8475607324452010005D2FEA /* CustomRow.swift */,
 			);
 			path = QuickRoutine;
 			sourceTree = "<group>";
@@ -507,8 +513,10 @@
 			files = (
 				8455A80D24425AB80049D5A5 /* AddItemModal.swift in Sources */,
 				8422F97E24400902005501E1 /* AppDelegate.swift in Sources */,
+				84756072244515A5005D2FEA /* CustomRowModel.swift in Sources */,
 				8422F9B524400988005501E1 /* HomeView.swift in Sources */,
 				84EEC36B2440DF80005616B4 /* QuickRoutineView.swift in Sources */,
+				8475607424452010005D2FEA /* CustomRow.swift in Sources */,
 				84EEC36E2440EB0B005616B4 /* MetronomeView.swift in Sources */,
 				8422F9B724400A38005501E1 /* HostingController.swift in Sources */,
 				8422F98024400902005501E1 /* SceneDelegate.swift in Sources */,
