@@ -43,7 +43,18 @@ struct QuickRoutineView: View {
                     self.addPracticeItem.toggle()
                 }){
                     Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
-                }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem, practiceItems: self.practiceItems ) })
+            }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem, practiceItems: self.practiceItems ) })
+            NavigationLink(destination: PlayRoutineView(practiceItems: practiceItems)){
+                Text("START ROUTINE")
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(height: 40)
+                    .foregroundColor(.white)
+                    .font(.system(size: 14, weight: .bold))
+                    .background(practiceItems.rowModels.count == 0 ? Color.gray : Color.primary)
+                    .cornerRadius(5)
+                    .padding()
+            }.disabled(practiceItems.rowModels.count == 0 ? true : false)
+            
         }
     }
     

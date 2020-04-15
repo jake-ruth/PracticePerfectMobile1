@@ -22,6 +22,8 @@
 		8422F9B32440096C005501E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B22440096C005501E1 /* SettingsView.swift */; };
 		8422F9B524400988005501E1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B424400988005501E1 /* HomeView.swift */; };
 		8422F9B724400A38005501E1 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B624400A38005501E1 /* HostingController.swift */; };
+		8427DCB024466E1D0034B1FE /* PlayRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427DCAF24466E1D0034B1FE /* PlayRoutineView.swift */; };
+		8427DCB424466F440034B1FE /* RoutineTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427DCB324466F440034B1FE /* RoutineTimerView.swift */; };
 		8455A80D24425AB80049D5A5 /* AddItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A80C24425AB80049D5A5 /* AddItemModal.swift */; };
 		8455A8112443A9D80049D5A5 /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8455A8102443A9D80049D5A5 /* tick.wav */; };
 		8455A8132443AFC40049D5A5 /* mainTick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8455A8122443AFC30049D5A5 /* mainTick.wav */; };
@@ -83,6 +85,8 @@
 		8422F9B22440096C005501E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8422F9B424400988005501E1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8422F9B624400A38005501E1 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		8427DCAF24466E1D0034B1FE /* PlayRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRoutineView.swift; sourceTree = "<group>"; };
+		8427DCB324466F440034B1FE /* RoutineTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTimerView.swift; sourceTree = "<group>"; };
 		8455A80C24425AB80049D5A5 /* AddItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemModal.swift; sourceTree = "<group>"; };
 		8455A8102443A9D80049D5A5 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
 		8455A8122443AFC30049D5A5 /* mainTick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mainTick.wav; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		8422F97C24400902005501E1 /* PracticePerfectMobile1 */ = {
 			isa = PBXGroup;
 			children = (
+				8427DCAE24466DFD0034B1FE /* PlayRoutine */,
 				8412E9822442053C00637FFC /* CustomComponents */,
 				84EEC36C2440E904005616B4 /* Metronome */,
 				84EEC3692440DF73005616B4 /* QuickRoutine */,
@@ -221,6 +226,15 @@
 				8422F9A424400903005501E1 /* Info.plist */,
 			);
 			path = PracticePerfectMobile1UITests;
+			sourceTree = "<group>";
+		};
+		8427DCAE24466DFD0034B1FE /* PlayRoutine */ = {
+			isa = PBXGroup;
+			children = (
+				8427DCAF24466E1D0034B1FE /* PlayRoutineView.swift */,
+				8427DCB324466F440034B1FE /* RoutineTimerView.swift */,
+			);
+			path = PlayRoutine;
 			sourceTree = "<group>";
 		};
 		84EEC3642440D174005616B4 /* AuthViews */ = {
@@ -515,6 +529,7 @@
 				8422F97E24400902005501E1 /* AppDelegate.swift in Sources */,
 				84756072244515A5005D2FEA /* CustomRowModel.swift in Sources */,
 				8422F9B524400988005501E1 /* HomeView.swift in Sources */,
+				8427DCB424466F440034B1FE /* RoutineTimerView.swift in Sources */,
 				84EEC36B2440DF80005616B4 /* QuickRoutineView.swift in Sources */,
 				8475607424452010005D2FEA /* CustomRow.swift in Sources */,
 				84EEC36E2440EB0B005616B4 /* MetronomeView.swift in Sources */,
@@ -526,6 +541,7 @@
 				84EEC3612440B160005616B4 /* SessionStore.swift in Sources */,
 				84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */,
 				8422F9B32440096C005501E1 /* SettingsView.swift in Sources */,
+				8427DCB024466E1D0034B1FE /* PlayRoutineView.swift in Sources */,
 				8422F9B124400948005501E1 /* MyRoutinesView.swift in Sources */,
 				84EEC3662440D194005616B4 /* SignInView.swift in Sources */,
 				8422F98324400902005501E1 /* PracticePerfectMobile1.xcdatamodeld in Sources */,
