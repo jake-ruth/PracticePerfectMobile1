@@ -32,7 +32,7 @@ struct MyRoutinesView: View {
                     .multilineTextAlignment(.leading)
                     .lineLimit(nil)
             }
-        }.onAppear{ print("fetch all routines")}
+        }.onAppear{ print("fetch routine from store")}
     }
 }
 

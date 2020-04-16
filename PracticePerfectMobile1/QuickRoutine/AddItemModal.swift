@@ -7,25 +7,43 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AddItemModal: View {
+    @Environment(\.managedObjectContext) private var moc
     @Binding var showModal: Bool
+    @Binding var newPracticeItem: PracticeItemModel
     @State var practiceItems: PracticeItems
     @State var title: String = "initial"
     @State var details: String = "initial"
     @State var minutes: Int = 1
-    var minuteOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     
-    func createNewItem(){
-        let newItem = CustomRowModel(title: title, details: details, minutes: minutes, isExpanded: false)
-        practiceItems.addNewRow(model: newItem)
-        print(newItem)
+    public func createNewItem(){
+        //practiceItems.addNewPracticeItem(practiceItem: self.practiceItem)
+//        let practiceItem1 = PracticeItem(context: self.moc)
+//        practiceItem1.uuid = UUID()
+//        practiceItem1.title = "ET"
+//        practiceItem1.details = "Deets"
+//        practiceItem1.minutes = 123
+//        do {
+//            try self.moc.save()
+//        } catch {
+//            print("ITEM: ", practiceItem1)
+//            print("ERR: ", error)
+//        }
+//
+        newPracticeItem.title = self.title
+        newPracticeItem.details = self.details
+        newPracticeItem.minutes = self.minutes
         showModal = false
     }
     
+    var minuteOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    
+    
     var body: some View {
         VStack {
-        Section(header: Text("Add Practice Item").font(.system(size: 30, weight: .semibold))) {
+            Section(header: Text("Add Practice Item").font(.system(size: 30, weight: .semibold))) {
                 CustomTextField(
                     placeholder: Text("Title").foregroundColor(.gray).font(.system(size: 20)),
                     text: $title
@@ -41,7 +59,7 @@ struct AddItemModal: View {
                         Text(String(self.minuteOptions[$0]) + "min")
                     }
                 }.labelsHidden()
-
+                
                 HStack {
                     Button(action: {self.showModal.toggle()}){
                         Text("Cancel")

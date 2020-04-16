@@ -16,17 +16,17 @@ struct PlayRoutineView: View {
     
     var body: some View {
         VStack {
-            Text(self.practiceItems.rowModels[self.practiceItemIndex].title).font(.title)
+            Text(self.practiceItems.practiceItemsStored[self.practiceItemIndex].title!).font(.title)
             Text("\(self.minutes) seconds left").onReceive(timer) { input in
 
                 if (self.minutes != 0){
                     self.minutes -= 1
                 } else {
                     self.practiceItemIndex += 1
-                    self.minutes = self.practiceItems.rowModels[self.practiceItemIndex].minutes
+                    self.minutes = self.practiceItems.practiceItemsStored[self.practiceItemIndex].minutes as! Int
                 }
             }
-        }.onAppear(perform: {self.minutes = self.practiceItems.rowModels[self.practiceItemIndex].minutes})
+        }.onAppear(perform: {self.minutes = self.practiceItems.practiceItemsStored[self.practiceItemIndex].minutes as! Int})
     }
 }
 

@@ -15,15 +15,14 @@ struct CustomRow: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            
             Button(action: { self.model.isExpanded.toggle() }){
-                Text(model.title)
+                Text(model.practiceItem.title!)
                     .font(.system(size: 20, weight: .bold))
             }
             
             if (model.isExpanded) {
                 HStack {
-                    Text(model.details + "-" + String(model.minutes))
+                    Text(model.practiceItem.details! + "-" + String(model.practiceItem.minutes!))
                     .lineLimit(nil).padding(.horizontal, 50)
                     
                     Button(action: {self.practiceItems.removeRow(uuid: self.model.id)}){

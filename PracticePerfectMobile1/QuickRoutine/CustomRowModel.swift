@@ -11,8 +11,6 @@ import Combine
 
 public struct CustomRowModel: Identifiable {
     public var id = UUID().uuidString
-    var title: String
-    var details: String
-    var minutes: Int
+    var practiceItem: PracticeItemModel
     var isExpanded: Bool
 }
