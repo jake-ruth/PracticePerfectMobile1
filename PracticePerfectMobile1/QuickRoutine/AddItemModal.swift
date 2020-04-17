@@ -10,31 +10,25 @@ import SwiftUI
 import Combine
 
 struct AddItemModal: View {
-    @Environment(\.managedObjectContext) private var moc
+    @Environment(\.managedObjectContext) var moc
     @Binding var showModal: Bool
-    @Binding var newPracticeItem: PracticeItemModel
     @State var practiceItems: PracticeItems
     @State var title: String = "initial"
     @State var details: String = "initial"
     @State var minutes: Int = 1
     
     public func createNewItem(){
-        //practiceItems.addNewPracticeItem(practiceItem: self.practiceItem)
-//        let practiceItem1 = PracticeItem(context: self.moc)
-//        practiceItem1.uuid = UUID()
-//        practiceItem1.title = "ET"
-//        practiceItem1.details = "Deets"
-//        practiceItem1.minutes = 123
-//        do {
-//            try self.moc.save()
-//        } catch {
-//            print("ITEM: ", practiceItem1)
-//            print("ERR: ", error)
-//        }
-//
-        newPracticeItem.title = self.title
-        newPracticeItem.details = self.details
-        newPracticeItem.minutes = self.minutes
+        let practiceItem1 = PracticeItem(context: self.moc)
+        practiceItem1.uuid = UUID()
+        practiceItem1.title = self.title
+        practiceItem1.details = self.details
+        practiceItem1.minutes = self.minutes as NSNumber
+        do {
+            try self.moc.save()
+        } catch {
+            print("ITEM: ", practiceItem1)
+            print("ERR: ", error)
+        }
         showModal = false
     }
     
