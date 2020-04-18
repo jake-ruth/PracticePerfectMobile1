@@ -11,28 +11,23 @@ import SwiftUI
 struct PlayRoutineView: View {
     @FetchRequest(fetchRequest: PracticeItem.getAllPracticeItems()) var practiceItemsStored:FetchedResults<PracticeItem>
     @State var practiceItemIndex: Int = 0
-    @State var minutes: Int = 0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var currentDate:Date = Date() + 10
+    @State var showAlert: Bool = false
+    @State var maxIndex: Int = 1
     
     var body: some View {
         VStack {
             Text(self.practiceItemsStored[self.practiceItemIndex].title!).font(.title)
-            Text("\(self.minutes) seconds left").onReceive(timer) { input in
-
-                if (self.minutes != 0){
-                    self.minutes -= 1
-                } else {
-                    self.practiceItemIndex += 1
-                    self.minutes = self.practiceItemsStored[self.practiceItemIndex].minutes as! Int
-                }
-            }
-        }.onAppear(perform: {self.minutes = self.practiceItemsStored[self.practiceItemIndex].minutes as! Int})
+//            CountdownView(practiceItemIndex: self.$practiceItemIndex, maxIndex: self.$maxIndex, referenceDate: Date() + TimeInterval((self.practiceItemsStored[practiceItemIndex].minutes as! Int)))
+            
+            CountdownView(practiceItemIndex: self.$practiceItemIndex, maxIndex: self.$maxIndex, referenceDate: self.$currentDate)
+        }
     }
 }
 
-//struct PlayRoutineView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlayRoutineView(practiceItems: PracticeItems())
-//    }
-//}
+struct PlayRoutineView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlayRoutineView()
+    }
+}
 

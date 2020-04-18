@@ -12,21 +12,19 @@ import Combine
 struct AddItemModal: View {
     @Environment(\.managedObjectContext) var moc
     @Binding var showModal: Bool
-    @State var practiceItems: PracticeItems
     @State var title: String = "initial"
     @State var details: String = "initial"
     @State var minutes: Int = 1
     
     public func createNewItem(){
-        let practiceItem1 = PracticeItem(context: self.moc)
-        practiceItem1.uuid = UUID()
-        practiceItem1.title = self.title
-        practiceItem1.details = self.details
-        practiceItem1.minutes = self.minutes as NSNumber
+        let practiceItem = PracticeItem(context: self.moc)
+        practiceItem.uuid = UUID()
+        practiceItem.title = self.title
+        practiceItem.details = self.details
+        practiceItem.minutes = self.minutes as NSNumber
         do {
             try self.moc.save()
         } catch {
-            print("ITEM: ", practiceItem1)
             print("ERR: ", error)
         }
         showModal = false

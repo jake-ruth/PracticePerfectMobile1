@@ -13,17 +13,17 @@ struct CustomTextField: View {
     @Binding var text: String
     var editingChanged: (Bool)->() = { _ in }
     var commit: ()->() = { }
-
+    
     var body: some View {
         ZStack(alignment: .leading) {
             if text.isEmpty {
                 placeholder.padding(10).font(.system(size: 20))
             }
             TextField("", text: $text, onEditingChanged: editingChanged, onCommit: commit)
-            .font(.system(size: 20))
+                .font(.system(size: 20))
             .padding(12)
-            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
-            .foregroundColor(Color(.white))
+                .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
+                .foregroundColor(Color(.white))
         }
     }
 }

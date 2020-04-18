@@ -23,7 +23,7 @@ struct CustomSecureField: View {
             }
             SecureField("", text: $text, onCommit: commit)
                 .font(.system(size: 20))
-                .padding(10)
+                .padding(12)
                 .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 2))
                 .foregroundColor(Color(.white))
         }

@@ -50,7 +50,7 @@ struct QuickRoutineView: View {
                     self.addPracticeItem.toggle()
                 }){
                     Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
-            }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem, practiceItems: self.practiceItems).environment(\.managedObjectContext, self.managedObjectContext) })
+            }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem).environment(\.managedObjectContext, self.managedObjectContext) })
             
             NavigationLink(destination: PlayRoutineView()){
                 Text("START ROUTINE")
