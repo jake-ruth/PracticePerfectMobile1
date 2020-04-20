@@ -15,6 +15,7 @@ public class PracticeItem:NSManagedObject, Identifiable {
     @NSManaged public var title:String?
     @NSManaged public var details:String?
     @NSManaged public var minutes:NSNumber?
+    @NSManaged public var index:NSNumber?
 }
 
 extension PracticeItem {
@@ -22,7 +23,7 @@ extension PracticeItem {
         let request:NSFetchRequest<PracticeItem> = PracticeItem.fetchRequest() as!
             NSFetchRequest<PracticeItem>
         
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "index", ascending: true)
         
         request.sortDescriptors = [sortDescriptor]
         

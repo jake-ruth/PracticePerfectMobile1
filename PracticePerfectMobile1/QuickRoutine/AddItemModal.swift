@@ -11,6 +11,7 @@ import Combine
 
 struct AddItemModal: View {
     @Environment(\.managedObjectContext) var moc
+    @FetchRequest(fetchRequest: PracticeItem.getAllPracticeItems()) var practiceItemsStored:FetchedResults<PracticeItem>
     @Binding var showModal: Bool
     @State var title: String = "initial"
     @State var details: String = "initial"
@@ -21,7 +22,8 @@ struct AddItemModal: View {
         practiceItem.uuid = UUID()
         practiceItem.title = self.title
         practiceItem.details = self.details
-        practiceItem.minutes = self.minutes as NSNumber
+        practiceItem.minutes = self.minutes + 1 as NSNumber
+        practiceItem.index = NSNumber(value: self.practiceItemsStored.count)
         do {
             try self.moc.save()
         } catch {

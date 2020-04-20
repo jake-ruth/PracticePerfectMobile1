@@ -2,57 +2,60 @@
 //  CountdownView.swift
 //  PracticePerfectMobile1
 //
-//  Created by Admin on 4/17/20.
+//  Created by Admin on 4/18/20.
 //  Copyright © 2020 JakeRuthMusic. All rights reserved.
 //
 
 import SwiftUI
 
-struct CountdownView : View {
-    @FetchRequest(fetchRequest: PracticeItem.getAllPracticeItems()) var practiceItemsStored:FetchedResults<PracticeItem>
-    @State private var nowDate: Date = Date()
-    @Binding var practiceItemIndex: Int
-    @Binding var maxIndex: Int
-    @Binding var referenceDate: Date
+struct CountdownView: View {
+    @Binding var seconds: Int
     
-    var timer: Timer {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
-            self.nowDate = Date()
-            if (self.nowDate > self.referenceDate){
-                if (self.practiceItemIndex < self.maxIndex){
-                self.practiceItemIndex += 1
-                    self.referenceDate = Date() + TimeInterval((self.practiceItemsStored[self.practiceItemIndex].minutes as! Int))
-                }
-                else {
-                    print("Alert that routine is finished")
-                }
-            }
-
+    func formatMinutes() -> String {
+        let minutes = self.seconds / 60 % 60
+        //Always return double digit
+        if minutes < 10 {
+            let returnMins = (String(format: "%02d", minutes))
+        return returnMins
+        } else {
+            return String(minutes)
+        }
+    }
+    
+    func formatSeconds() -> String {
+        let secs = self.seconds % 60
+        //Always return double digit
+        if secs < 10 {
+            let returnSecs = (String(format: "%02d", secs))
+        return returnSecs
+        } else {
+            return String(secs)
         }
     }
     
     var body: some View {
-        Text(countDownString(from: referenceDate))
-            .font(.largeTitle)
-            .onAppear(perform: {
-                _ = self.timer
-            })
-    }
-    
-    func countDownString(from date: Date) -> String {
-        let calendar = Calendar(identifier: .gregorian)
-        let components = calendar
-            .dateComponents([.minute, .second],
-                            from: nowDate,
-                            to: referenceDate)
-        return String(format: "%02dm:%02ds",
-                      components.minute ?? 00,
-                      components.second ?? 00)
+        HStack {
+            VStack{
+                Text("\(self.formatMinutes())").padding(10).font(.system(size: 70, weight: .semibold, design: .monospaced))
+                    .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.clear), lineWidth: 2).background(Color.primary))
+                    .foregroundColor(Color(.white))
+                    .cornerRadius(5)
+                Text("minutes")
+            }
+            
+            VStack{
+                Text("\(formatSeconds())").padding(10).font(.system(size: 70, weight: .semibold, design: .monospaced))
+                    .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.clear), lineWidth: 2).background(Color.primary))
+                    .foregroundColor(Color(.white))
+                    .cornerRadius(5)
+                Text("seconds")
+            }
+        }
     }
 }
 
 //struct CountdownView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        CountdownView(practiceItemIndex: 0, referenceDate: Date())
+//        CountdownView(seconds: 0)
 //    }
 //}
