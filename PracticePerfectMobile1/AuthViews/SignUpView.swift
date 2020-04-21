@@ -11,8 +11,10 @@ import SwiftUI
 struct SignUpView: View {
     @State var email: String = "initial"
     @State var password: String = "initial"
+    @State var confirmPassword = "initial"
     @State var error: String = ""
     @EnvironmentObject var session: SessionStore
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     func signUp() {
         session.signUp(email: email, password: password) { (result, error) in
@@ -30,11 +32,12 @@ struct SignUpView: View {
         ZStack {
             Color.surface.edgesIgnoringSafeArea(.all)
             VStack {
-                Text("Create Account")
-                    .font(.system(size: 32, weight: .heavy))
-                    .foregroundColor(Color(.white))
+                Image("PracticePerfectLogo")
+                    .resizable()
+                    .frame(width: 105, height: 105)
                 
-                VStack(spacing: 18) {
+                VStack(spacing: 15) {
+                    
                     if (error != "") {
                         Text(error)
                             .font(.system(size: 14, weight: .semibold))
@@ -51,12 +54,15 @@ struct SignUpView: View {
                         text: $password
                     ).onAppear(perform: {self.password = ""})
                     
-                    
-                    
+                    CustomSecureField(
+                        placeholder: Text("Confirm Password").foregroundColor(.gray).font(.system(size: 20)),
+                        text: $confirmPassword
+                    ).onAppear(perform: {self.confirmPassword = ""})
                 }
-                    
+                .padding(.vertical, 40)
+                
                 Button(action: signUp) {
-                    Text("Create Account")
+                    Text("CREATE ACCOUNT")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 40)
                         .foregroundColor(.white)
@@ -64,10 +70,23 @@ struct SignUpView: View {
                         .background(Color.primary)
                         .cornerRadius(5)
                 }
-        
-            }.padding(.horizontal, 32)
-            
-        }
+                
+                Text("or...").foregroundColor(.white).padding(5)
+                
+                Button(action: { self.presentationMode.wrappedValue.dismiss() }){
+                    Text("BACK TO LOGIN")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 40)
+                        .foregroundColor(.white)
+                        .font(.system(size: 14, weight: .bold))
+                        .background(Color.secondary)
+                        .cornerRadius(5)
+                }
+                
+                Spacer()
+            }
+            .padding(.horizontal, 32)
+        }.modifier(DismissingKeyboard())
     }
 }
 struct SignUpView_Previews: PreviewProvider {

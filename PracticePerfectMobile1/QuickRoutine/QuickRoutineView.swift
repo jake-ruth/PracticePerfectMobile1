@@ -76,60 +76,64 @@ struct QuickRoutineView: View {
     }
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(self.practiceItemsStored) { practiceItem in
-                    VStack {
-                        Text(practiceItem.title!).font(.headline)
-                        Text(practiceItem.details!).font(.caption)
-                    }
-                }.onDelete{indexSet in
-                    let deleteItem = self.practiceItemsStored[indexSet.first!]
-                    self.managedObjectContext.delete(deleteItem)
-                    
-                    do {
-                        try self.managedObjectContext.save()
-                    } catch {
-                        print(error)
-                    }
-                }
-                .onMove(perform: moveItem)
-                
-            }
-            .navigationBarItems(trailing: EditButton())
-            .sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem).environment(\.managedObjectContext, self.managedObjectContext) })
+        ZStack {
             
-            NavigationLink(destination: PlayRoutineView()){
-                Text("START ROUTINE")
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 40)
-                    .foregroundColor(.white)
-                    .font(.system(size: 14, weight: .bold))
-                    .background(self.practiceItemsStored.count == 0 ? Color.gray : Color.primary)
-                    .cornerRadius(5)
-                    .padding()
-            }.disabled(self.practiceItemsStored.count == 0 ? true : false)
-            Button(action: {self.addPracticeItem.toggle()}){
-                Text("Add Practice Item")
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 40)
-                    .foregroundColor(.white)
-                    .font(.system(size: 14, weight: .bold))
-                    .background(Color.secondary)
-                    .cornerRadius(5)
-                    .padding(20)
+            Color.surface.edgesIgnoringSafeArea(.all)
+            VStack {
+                List {
+                    ForEach(self.practiceItemsStored) { practiceItem in
+                        VStack {
+                            Text("\(practiceItem.title!) - \(practiceItem.minutes!) min").font(.headline)
+                            Text(practiceItem.details!).font(.caption)
+                        }.listRowBackground(Color.surface)
+                    }.onDelete{indexSet in
+                        let deleteItem = self.practiceItemsStored[indexSet.first!]
+                        self.managedObjectContext.delete(deleteItem)
+                        
+                        do {
+                            try self.managedObjectContext.save()
+                        } catch {
+                            print(error)
+                        }
+                    }
+                    .onMove(perform: moveItem)
+                    
+                }
+                .navigationBarItems(trailing: Button(action: {print("EDIT")}) {EditButton() })
+                .sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem).environment(\.managedObjectContext, self.managedObjectContext) })
+                
+                NavigationLink(destination: PlayRoutineView()){
+                    Text("START ROUTINE")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 40)
+                        .foregroundColor(.white)
+                        .font(.system(size: 14, weight: .bold))
+                        .background(self.practiceItemsStored.count == 0 ? Color.gray : Color.primary)
+                        .cornerRadius(5)
+                        .padding()
+                }.disabled(self.practiceItemsStored.count == 0 ? true : false)
+                
+                Button(action: {self.addPracticeItem.toggle()}){
+                    Text("ADD PRACTICE ITEM")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 40)
+                        .foregroundColor(.white)
+                        .font(.system(size: 14, weight: .bold))
+                        .background(Color.secondary)
+                        .cornerRadius(5)
+                        .padding(20)
+                }
             }
+            //        .navigationBarItems(trailing:
+            //            Button(action: {
+            //                self.addPracticeItem.toggle()
+            //                let impactMed = UIImpactFeedbackGenerator(style: .medium)
+            //                impactMed.impactOccurred()
+            //            }){
+            //                Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
+            //        }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem).environment(\.managedObjectContext, self.managedObjectContext) })
         }
-        //        .navigationBarItems(trailing:
-        //            Button(action: {
-        //                self.addPracticeItem.toggle()
-        //                let impactMed = UIImpactFeedbackGenerator(style: .medium)
-        //                impactMed.impactOccurred()
-        //            }){
-        //                Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
-        //        }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem).environment(\.managedObjectContext, self.managedObjectContext) })
     }
-    
 }
 
 struct QuickRoutineView_Previews: PreviewProvider {

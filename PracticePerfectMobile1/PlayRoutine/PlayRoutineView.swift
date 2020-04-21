@@ -10,15 +10,19 @@ import SwiftUI
 
 struct PlayRoutineView: View {
     @FetchRequest(fetchRequest: PracticeItem.getAllPracticeItems()) var practiceItemsStored:FetchedResults<PracticeItem>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var practiceItemIndex: Int = 0
     @State var seconds: Int = 0
     @State var playing: Bool = true
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var showAlert: Bool = false
+    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     func incrementPracticeItemIndex() {
         if (self.practiceItemIndex < self.practiceItemsStored.count - 1) {
             self.practiceItemIndex += 1
             self.seconds = self.practiceItemsStored[self.practiceItemIndex].minutes as! Int * 60
+        } else {
+            self.showAlert = true
         }
     }
     
@@ -30,6 +34,8 @@ struct PlayRoutineView: View {
     }
     
     var body: some View {
+        ZStack {
+            Color.surface.edgesIgnoringSafeArea(.all)
             VStack {
                 Text(self.practiceItemsStored[self.practiceItemIndex].title!).font(.title)
                 Text(self.practiceItemsStored[self.practiceItemIndex].details!)
@@ -40,8 +46,7 @@ struct PlayRoutineView: View {
                             self.seconds -= 1
                         }
                     } else {
-                        self.practiceItemIndex += 1
-                        self.seconds = self.practiceItemsStored[self.practiceItemIndex].minutes as! Int
+                        self.incrementPracticeItemIndex()
                     }
                 }
                 Spacer()
@@ -61,9 +66,20 @@ struct PlayRoutineView: View {
                 
             }.onAppear(perform: {
                 self.seconds = (self.practiceItemsStored[self.practiceItemIndex].minutes as! Int * 60)
-                print("Appear")
+                self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+            })
+                .onDisappear(perform: {
+                    self.practiceItemIndex = 0
                 })
-        .navigationBarItems(trailing: Text("HEYO"))
+                .alert(isPresented: self.$showAlert) {
+                    Alert(title: Text("Routine Complete!"),
+                          dismissButton: .default (Text("OK")) {
+                            self.showAlert = false
+                            self.presentationMode.wrappedValue.dismiss()
+                        })
+            }
+            .navigationBarItems(trailing: Text("HEYO"))
+        }
     }
 }
 
