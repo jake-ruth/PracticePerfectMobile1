@@ -16,8 +16,9 @@ struct AddItemModal: View {
     @State var title: String = "initial"
     @State var details: String = "initial"
     @State var minutes: Int = 1
+    var minuteOptions = Array(1...60);
     
-    public func createNewItem(){
+    func createNewItem(){
         let practiceItem = PracticeItem(context: self.moc)
         practiceItem.uuid = UUID()
         practiceItem.title = self.title
@@ -29,10 +30,9 @@ struct AddItemModal: View {
         } catch {
             print("ERR: ", error)
         }
-        showModal = false
+        self.showModal = false
     }
     
-    var minuteOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     
     
     var body: some View {

@@ -11,7 +11,7 @@ import SwiftUI
 
 struct CustomRow: View {
     @State var model: CustomRowModel
-    @State var practiceItems: PracticeItems
+    //@State var practiceItems: PracticeItems
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,18 +20,18 @@ struct CustomRow: View {
                     .font(.system(size: 20, weight: .bold))
             }
             
-            if (model.isExpanded) {
-                HStack {
-                    Text(model.practiceItem.details! + "-" + String(model.practiceItem.minutes!))
-                    .lineLimit(nil).padding(.horizontal, 50)
-                    
-                    Button(action: {self.practiceItems.removeRow(uuid: self.model.id)}){
-                        Image(systemName: "minus.circle").font(.system(size: 22, weight: .heavy)).padding(5)
-                    }
-                }
-            } else {
-                EmptyView()
-            }
+//            if (model.isExpanded) {
+//                HStack {
+//                    Text(model.practiceItem.details! + "-" + String(model.practiceItem.minutes!))
+//                    .lineLimit(nil).padding(.horizontal, 50)
+//                    
+//                    Button(action: {self.practiceItems.removeRow(uuid: self.model.id)}){
+//                        Image(systemName: "minus.circle").font(.system(size: 22, weight: .heavy)).padding(5)
+//                    }
+//                }
+//            } else {
+//                EmptyView()
+//            }
         }
     }
 }

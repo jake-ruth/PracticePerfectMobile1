@@ -9,32 +9,14 @@
 import SwiftUI
 import Combine
 
-class PracticeItems: ObservableObject {
-    var objectWillChange = ObservableObjectPublisher()
-    // Every time something changes in the row models array, calls willSet
-    var rowModels = [CustomRowModel]() {
-        willSet {
-            self.objectWillChange.send()
-        }
-    }
-    
-    func addNewPracticeItem(practiceItem: PracticeItemModel){
-        let practiceItemRow = CustomRowModel(practiceItem: practiceItem, isExpanded: false)
-        self.rowModels.append(practiceItemRow)
-    }
-    
-    func removeRow(uuid: String){
-        guard let index = self.rowModels.firstIndex(where: {$0.id == uuid}) else {return}
-        self.rowModels.remove(at: index)
-    }
-}
 
 struct QuickRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: PracticeItem.getAllPracticeItems()) var practiceItemsStored:FetchedResults<PracticeItem>
-    @ObservedObject var practiceItems = PracticeItems()
+    //@ObservedObject var practiceItems = PracticeItems()
     @State var addPracticeItem = false
     @State var index = 0
+    @State var editMode: EditMode = .inactive
     
     func moveItem(indexSet: IndexSet, destination: Int) {
         let source = indexSet.first!
@@ -102,36 +84,36 @@ struct QuickRoutineView: View {
                 .navigationBarItems(trailing: Button(action: {print("EDIT")}) {EditButton() })
                 .sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem).environment(\.managedObjectContext, self.managedObjectContext) })
                 
-                NavigationLink(destination: PlayRoutineView()){
-                    Text("START ROUTINE")
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(height: 40)
-                        .foregroundColor(.white)
-                        .font(.system(size: 14, weight: .bold))
-                        .background(self.practiceItemsStored.count == 0 ? Color.gray : Color.primary)
-                        .cornerRadius(5)
-                        .padding()
-                }.disabled(self.practiceItemsStored.count == 0 ? true : false)
+                if (editMode == .inactive){
+                    
+                    NavigationLink(destination: PlayRoutineView()){
+                        Text("START ROUTINE")
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(height: 40)
+                            .foregroundColor(.white)
+                            .font(.system(size: 14, weight: .bold))
+                            .background(self.practiceItemsStored.count == 0 ? Color.gray : Color.primary)
+                            .cornerRadius(5)
+                            .padding()
+                    }.disabled(self.practiceItemsStored.count == 0 ? true : false)
+                }
                 
-                Button(action: {self.addPracticeItem.toggle()}){
-                    Text("ADD PRACTICE ITEM")
-                        .frame(minWidth: 0, maxWidth: .infinity)
+                if (self.editMode == .active){
+                    
+                    Button(action: {self.addPracticeItem.toggle()}){
+                        HStack {
+                        Image(systemName: "plus")
+                        Text("ADD PRACTICE ITEM")
+                        }.frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 40)
                         .foregroundColor(.white)
                         .font(.system(size: 14, weight: .bold))
                         .background(Color.secondary)
                         .cornerRadius(5)
                         .padding(20)
+                    }
                 }
-            }
-            //        .navigationBarItems(trailing:
-            //            Button(action: {
-            //                self.addPracticeItem.toggle()
-            //                let impactMed = UIImpactFeedbackGenerator(style: .medium)
-            //                impactMed.impactOccurred()
-            //            }){
-            //                Image(systemName: "plus.circle").foregroundColor(Color.primary).font(.system(size: 22, weight: .heavy)).padding(5)
-            //        }).sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem).environment(\.managedObjectContext, self.managedObjectContext) })
+            }.environment(\.editMode, self.$editMode)
         }
     }
 }
