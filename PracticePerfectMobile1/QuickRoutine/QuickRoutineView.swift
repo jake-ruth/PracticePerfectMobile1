@@ -13,7 +13,6 @@ import Combine
 struct QuickRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: PracticeItem.getAllPracticeItems()) var practiceItemsStored:FetchedResults<PracticeItem>
-    //@ObservedObject var practiceItems = PracticeItems()
     @State var addPracticeItem = false
     @State var index = 0
     @State var editMode: EditMode = .inactive
@@ -64,9 +63,9 @@ struct QuickRoutineView: View {
             VStack {
                 List {
                     ForEach(self.practiceItemsStored) { practiceItem in
-                        VStack {
-                            Text("\(practiceItem.title!) - \(practiceItem.minutes!) min").font(.headline)
-                            Text(practiceItem.details!).font(.caption)
+                        VStack (alignment: .leading) {
+                            Text("\(practiceItem.title!) - \(practiceItem.minutes!) min").font(.system(size: 20, weight: .bold))
+                            Text(practiceItem.details!).font(.callout).foregroundColor(Color.gray)
                         }.listRowBackground(Color.surface)
                     }.onDelete{indexSet in
                         let deleteItem = self.practiceItemsStored[indexSet.first!]
@@ -81,13 +80,15 @@ struct QuickRoutineView: View {
                     .onMove(perform: moveItem)
                     
                 }
-                .navigationBarItems(trailing: Button(action: {print("EDIT")}) {EditButton() })
+                .navigationBarItems(trailing: EditButton() )
                 .sheet(isPresented: $addPracticeItem, content: { AddItemModal(showModal: self.$addPracticeItem).environment(\.managedObjectContext, self.managedObjectContext) })
                 
                 if (editMode == .inactive){
-                    
                     NavigationLink(destination: PlayRoutineView()){
+                        HStack {
+                        Image(systemName: "play.fill")
                         Text("START ROUTINE")
+                        }
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .frame(height: 40)
                             .foregroundColor(.white)
@@ -99,7 +100,6 @@ struct QuickRoutineView: View {
                 }
                 
                 if (self.editMode == .active){
-                    
                     Button(action: {self.addPracticeItem.toggle()}){
                         HStack {
                         Image(systemName: "plus")
@@ -110,7 +110,7 @@ struct QuickRoutineView: View {
                         .font(.system(size: 14, weight: .bold))
                         .background(Color.secondary)
                         .cornerRadius(5)
-                        .padding(20)
+                        .padding()
                     }
                 }
             }.environment(\.editMode, self.$editMode)
