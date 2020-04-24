@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import UserNotifications
+import UIKit
 
 struct PlayRoutineView: View {
     @FetchRequest(fetchRequest: PracticeItem.getAllPracticeItems()) var practiceItemsStored:FetchedResults<PracticeItem>
@@ -16,20 +18,47 @@ struct PlayRoutineView: View {
     @State var playing: Bool = true
     @State var showAlert: Bool = false
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var showMetronome: Bool = false
+    
+    
+    init() {
+        //Keep awake
+        UIApplication.shared.isIdleTimerDisabled = true
+        NotificationUtil.requestAccess()
+    }
     
     func incrementPracticeItemIndex() {
+        //First cancel all notifications
+        NotificationUtil.cancelAllNotifications()
+        let soundUtil = SoundUtil()
+        soundUtil.playFinishSound()
+        
         if (self.practiceItemIndex < self.practiceItemsStored.count - 1) {
             self.practiceItemIndex += 1
             self.seconds = self.practiceItemsStored[self.practiceItemIndex].minutes as! Int * 60
+            NotificationUtil.scheduleNotification(seconds: self.seconds)
         } else {
             self.showAlert = true
         }
     }
     
     func decrementPracticeItemIndex() {
+        //First cancel all notifications
+        NotificationUtil.cancelAllNotifications()
+        
         if (self.practiceItemIndex > 0) {
             self.practiceItemIndex -= 1
             self.seconds = self.practiceItemsStored[self.practiceItemIndex].minutes as! Int * 60
+            NotificationUtil.scheduleNotification(seconds: self.seconds)
+        }
+    }
+    
+    func handlePlaying() {
+        self.playing.toggle()
+        if (self.playing == false){
+            NotificationUtil.cancelAllNotifications()
+        } else if (self.playing == true){
+            NotificationUtil.scheduleNotification(seconds: self.seconds)
         }
     }
     
@@ -55,7 +84,7 @@ struct PlayRoutineView: View {
                         Image(systemName: "backward.fill").font(.system(size: 40, weight: .heavy))
                     }.padding()
                     Spacer()
-                    Button(action: {self.playing.toggle()}) {
+                    Button(action: { self.handlePlaying()}) {
                         Image(systemName: self.playing ? "pause.circle" : "play.circle").font(.system(size: 60, weight: .heavy))
                     }.padding()
                     Spacer()
@@ -67,6 +96,7 @@ struct PlayRoutineView: View {
             }.onAppear(perform: {
                 self.seconds = (self.practiceItemsStored[self.practiceItemIndex].minutes as! Int * 60)
                 self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+                NotificationUtil.scheduleNotification(seconds: self.practiceItemsStored[self.practiceItemIndex].minutes as! Int * 60)
             })
                 .onDisappear(perform: {
                     self.practiceItemIndex = 0
@@ -78,7 +108,8 @@ struct PlayRoutineView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         })
             }
-            .navigationBarItems(trailing: Text("HEYO"))
+            .navigationBarItems(trailing: Button("Metronome", action: {self.showMetronome = true}))
+            .sheet(isPresented: $showMetronome, content: { MetronomeView()})
         }
     }
 }

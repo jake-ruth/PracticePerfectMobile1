@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //Keep awake
+        UIApplication.shared.isIdleTimerDisabled = true
+        
         //Custom background color for lists
         UITableView.appearance().backgroundColor = UIColor.init(named: "surface")
 
