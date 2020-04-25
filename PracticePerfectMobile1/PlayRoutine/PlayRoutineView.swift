@@ -9,6 +9,7 @@
 import SwiftUI
 import UserNotifications
 import UIKit
+import AVFoundation
 
 struct PlayRoutineView: View {
     @FetchRequest(fetchRequest: PracticeItem.getAllPracticeItems()) var practiceItemsStored:FetchedResults<PracticeItem>
@@ -19,7 +20,7 @@ struct PlayRoutineView: View {
     @State var showAlert: Bool = false
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var showMetronome: Bool = false
-    
+    @State var audioPlayer: AVAudioPlayer?
     
     init() {
         //Keep awake
@@ -27,12 +28,26 @@ struct PlayRoutineView: View {
         NotificationUtil.requestAccess()
     }
     
+    //Want to extract this
+    func playFinishSound(){
+        let path = Bundle.main.path(forResource: "completed1", ofType: "wav")!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            print("Playing")
+            self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+            self.audioPlayer?.play()
+        } catch {
+            print("couldn't play")
+        }
+    }
+    
     func incrementPracticeItemIndex() {
         //First cancel all notifications
         NotificationUtil.cancelAllNotifications()
-        let soundUtil = SoundUtil()
-        soundUtil.playFinishSound()
         
+        let soundUtil = SoundUtil()
+        soundUtil.playFinishSound(audioPlayer: audioPlayer)
         if (self.practiceItemIndex < self.practiceItemsStored.count - 1) {
             self.practiceItemIndex += 1
             self.seconds = self.practiceItemsStored[self.practiceItemIndex].minutes as! Int * 60
@@ -55,6 +70,7 @@ struct PlayRoutineView: View {
     
     func handlePlaying() {
         self.playing.toggle()
+
         if (self.playing == false){
             NotificationUtil.cancelAllNotifications()
         } else if (self.playing == true){
@@ -76,6 +92,7 @@ struct PlayRoutineView: View {
                         }
                     } else {
                         self.incrementPracticeItemIndex()
+                        self.playFinishSound()
                     }
                 }
                 Spacer()
@@ -86,7 +103,9 @@ struct PlayRoutineView: View {
                     Spacer()
                     Button(action: { self.handlePlaying()}) {
                         Image(systemName: self.playing ? "pause.circle" : "play.circle").font(.system(size: 60, weight: .heavy))
-                    }.padding()
+                    }.padding().animation(
+                        Animation.easeInOut(duration: 2).delay(1)
+                    )
                     Spacer()
                     Button(action: {self.incrementPracticeItemIndex()}) {
                         Image(systemName: "forward.fill").font(.system(size: 40, weight: .heavy))
@@ -108,8 +127,12 @@ struct PlayRoutineView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         })
             }
-            .navigationBarItems(trailing: Button("Metronome", action: {self.showMetronome = true}))
-            .sheet(isPresented: $showMetronome, content: { MetronomeView()})
+            .navigationBarItems(trailing: Button(action: {self.showMetronome = true}) {
+                Image("MetronomeIcon")
+                    .resizable()
+                    .frame(width: 45, height: 45)
+            })
+                .sheet(isPresented: $showMetronome, content: { MetronomeView()})
         }
     }
 }

@@ -12,14 +12,15 @@ import AVFoundation
 public class SoundUtil {
     var audioPlayer: AVAudioPlayer?
     
-    public func playFinishSound(){
+    public func playFinishSound(audioPlayer: AVAudioPlayer?){
         let path = Bundle.main.path(forResource: "completed1", ofType: "wav")!
         let url = URL(fileURLWithPath: path)
+        var audioPlaya = audioPlayer
 
         do {
             print("Playing")
-            self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-            self.audioPlayer?.play()
+            audioPlaya = try AVAudioPlayer(contentsOf: url)
+            audioPlaya?.play()
         } catch {
             print("couldn't play")
         }

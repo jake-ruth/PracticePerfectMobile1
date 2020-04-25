@@ -7,40 +7,45 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SettingsView: View {
     @EnvironmentObject var session: SessionStore
     @State private var pauseBetweenItems = true
     
     var body: some View {
-        VStack {
-            List{
-                HStack {
-                    Text("Email: ").foregroundColor(.white)
-                    Spacer()
-                    Image(systemName: "square.and.pencil")
-                        .foregroundColor(Color.primary)
-                        .font(.system(size: 20, weight: .heavy))
-                }.padding(.horizontal)
-                
-                HStack {
-                    Toggle("", isOn: $pauseBetweenItems)
-                    .toggleStyle(
-                        ColoredToggleStyle(label: "Pause between items", onColor: Color.primary))
-                }
-            }
-            
+        ZStack {
             Color.surface.edgesIgnoringSafeArea(.all)
-            
-            Button(action: session.signOut) {
-                Text("Sign Out")
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 40)
-                    .foregroundColor(.white)
-                    .font(.system(size: 14, weight: .bold))
-                    .background(Color.secondary)
-                    .cornerRadius(5)
-                    .padding()
+            VStack {
+                
+                List{
+                    HStack {
+                        Text("Email: " + (Auth.auth().currentUser?.email)!).foregroundColor(.white)
+                        Spacer()
+                        Image(systemName: "square.and.pencil")
+                            .foregroundColor(Color.primary)
+                            .font(.system(size: 20, weight: .heavy))
+                    }.padding(.horizontal).listRowBackground(Color.surface)
+                    
+                    HStack {
+                        Toggle("", isOn: $pauseBetweenItems)
+                            .toggleStyle(
+                                ColoredToggleStyle(label: "Pause between items", onColor: Color.primary))
+                    }.listRowBackground(Color.surface)
+                }
+                
+                Color.surface.edgesIgnoringSafeArea(.all)
+                
+                Button(action: session.signOut) {
+                    Text("Sign Out")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 40)
+                        .foregroundColor(.white)
+                        .font(.system(size: 14, weight: .bold))
+                        .background(Color.secondary)
+                        .cornerRadius(5)
+                        .padding()
+                }
             }
         }
     }
@@ -51,7 +56,7 @@ struct ColoredToggleStyle: ToggleStyle {
     var onColor = Color(UIColor.green)
     var offColor = Color(UIColor.systemGray5)
     var thumbColor = Color.white
-
+    
     func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
             Text(label)

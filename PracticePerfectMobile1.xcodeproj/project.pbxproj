@@ -25,6 +25,8 @@
 		8422F9B32440096C005501E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B22440096C005501E1 /* SettingsView.swift */; };
 		8422F9B524400988005501E1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B424400988005501E1 /* HomeView.swift */; };
 		8422F9B724400A38005501E1 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B624400A38005501E1 /* HostingController.swift */; };
+		842C2C7D2453B31900053273 /* MetronomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C2C7C2453B31900053273 /* MetronomeIcon.png */; };
+		842C2C7F2453B3CE00053273 /* MetronomeIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */; };
 		842EA42E2448B4A40004E767 /* PracticeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EA42D2448B4A40004E767 /* PracticeItem.swift */; };
 		8455A80D24425AB80049D5A5 /* AddItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A80C24425AB80049D5A5 /* AddItemModal.swift */; };
 		84756072244515A5005D2FEA /* CustomRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84756071244515A5005D2FEA /* CustomRowModel.swift */; };
@@ -92,6 +94,8 @@
 		8422F9B22440096C005501E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8422F9B424400988005501E1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8422F9B624400A38005501E1 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		842C2C7C2453B31900053273 /* MetronomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MetronomeIcon.png; sourceTree = "<group>"; };
+		842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MetronomeIcon2.png; sourceTree = "<group>"; };
 		842EA42D2448B4A40004E767 /* PracticeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeItem.swift; sourceTree = "<group>"; };
 		8455A80C24425AB80049D5A5 /* AddItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemModal.swift; sourceTree = "<group>"; };
 		84756071244515A5005D2FEA /* CustomRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRowModel.swift; sourceTree = "<group>"; };
@@ -199,7 +203,9 @@
 				8422F9B024400948005501E1 /* MyRoutinesView.swift */,
 				8422F9B424400988005501E1 /* HomeView.swift */,
 				8422F9B22440096C005501E1 /* SettingsView.swift */,
+				842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */,
 				8422F98624400903005501E1 /* Assets.xcassets */,
+				842C2C7C2453B31900053273 /* MetronomeIcon.png */,
 				8422F98B24400903005501E1 /* LaunchScreen.storyboard */,
 				8422F98E24400903005501E1 /* Info.plist */,
 				84EEC35E2440B108005616B4 /* GoogleService-Info.plist */,
@@ -407,7 +413,9 @@
 				8422F98D24400903005501E1 /* LaunchScreen.storyboard in Resources */,
 				84EEC35F2440B108005616B4 /* GoogleService-Info.plist in Resources */,
 				8422F98A24400903005501E1 /* Preview Assets.xcassets in Resources */,
+				842C2C7F2453B3CE00053273 /* MetronomeIcon2.png in Resources */,
 				8422F98724400903005501E1 /* Assets.xcassets in Resources */,
+				842C2C7D2453B31900053273 /* MetronomeIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
