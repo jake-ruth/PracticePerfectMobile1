@@ -52,27 +52,32 @@ struct MetronomeView: View {
             self.stopMetronome()
         }
     }
-
+    
     var body: some View {
-        VStack {
-            Text(String(Int(self.bpm)))
-            Slider(value: $bpm, in: 40.0...320, step: 1).padding()
-            Picker(selection: $subdivision, label: Text("")) {
-                ForEach(0 ..< self.options.count) { index in
-                    Text(String(index) + "/4")
+        NavigationView {
+            ZStack {
+                Color.surface.edgesIgnoringSafeArea(.all)
+                VStack {
+                    Text(String(Int(self.bpm)))
+                    Slider(value: $bpm, in: 40.0...320, step: 1).padding()
+                    Picker(selection: $subdivision, label: Text("")) {
+                        ForEach(0 ..< self.options.count) { index in
+                            Text(String(index) + "/4")
+                        }
+                    }.labelsHidden()
+                    Button(action:
+                    { self.handleMetronome() }){
+                        Text(isPlaying == true ? "Stop" : "Start")
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 40)
+                            .foregroundColor(.white)
+                            .font(.system(size: 14, weight: .bold))
+                            .background(isPlaying == true ? Color.secondary : Color.primary)
+                            .cornerRadius(5)
+                            .padding()
+                    }
                 }
-            }.labelsHidden()
-            Button(action:
-            { self.handleMetronome() }){
-                Text(isPlaying == true ? "Stop" : "Start")
-                .frame(maxWidth: .infinity)
-                    .frame(height: 40)
-                    .foregroundColor(.white)
-                    .font(.system(size: 14, weight: .bold))
-                    .background(isPlaying == true ? Color.secondary : Color.primary)
-                    .cornerRadius(5)
-                    .padding()
-            }
+            }.navigationBarTitle(Text("Metronome").foregroundColor(Color.white), displayMode: .inline)
         }
     }
 }

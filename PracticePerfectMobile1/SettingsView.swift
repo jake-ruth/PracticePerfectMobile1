@@ -14,6 +14,8 @@ struct SettingsView: View {
     @State private var pauseBetweenItems = true
     
     var body: some View {
+        NavigationView {
+            
         ZStack {
             Color.surface.edgesIgnoringSafeArea(.all)
             VStack {
@@ -32,7 +34,7 @@ struct SettingsView: View {
                             .toggleStyle(
                                 ColoredToggleStyle(label: "Pause between items", onColor: Color.primary))
                     }.listRowBackground(Color.surface)
-                }
+                }.navigationBarTitle(Text("Settings").foregroundColor(Color.white), displayMode: .inline)
                 
                 Color.surface.edgesIgnoringSafeArea(.all)
                 
@@ -47,6 +49,7 @@ struct SettingsView: View {
                         .padding()
                 }
             }
+        }
         }
     }
 }

@@ -9,19 +9,38 @@
 import SwiftUI
 
 struct MyRoutinesView: View {
+    @Environment(\.managedObjectContext) var moc
     var practiceRoutines:Array<PracticeRoutine> = []
     
     init() {
+        let practiceItem1 = PracticeItem(context: self.moc)
+        practiceItem1.uuid = UUID()
+        practiceItem1.title = "Practice Scales"
+        practiceItem1.details = "Practice in Every key"
+        practiceItem1.minutes = 20
+        
+        let practiceItem2 = PracticeItem(context: self.moc)
+        practiceItem2.uuid = UUID()
+        practiceItem2.title = "Practice Something"
+        practiceItem2.details = "Practice in Every key"
+        practiceItem2.minutes = 10
+        
+        let practiceItem3 = PracticeItem(context: self.moc)
+        practiceItem3.uuid = UUID()
+        practiceItem3.title = "Practice Song"
+        practiceItem3.details = "Practice in Every key"
+        practiceItem3.minutes = 20
+        
         //Fetch routines from firebase eventually
         let practiceRoutine1 = PracticeRoutine()
         practiceRoutine1.routineTitle = "Jake's Routine"
-        practiceRoutine1.practiceItems = ["First", "Second", "Third"]
+        practiceRoutine1.practiceItems = [practiceItem1, practiceItem2, practiceItem3]
         practiceRoutine1.uuid = UUID()
         practiceRoutine1.isFavorite = false
         
         let practiceRoutine2 = PracticeRoutine()
         practiceRoutine2.routineTitle = "Erika's Routine"
-        practiceRoutine2.practiceItems = ["Buy cat", "kill racoon", "eat racoon"]
+        practiceRoutine2.practiceItems = [practiceItem1, practiceItem3]
         practiceRoutine2.uuid = UUID()
         practiceRoutine2.isFavorite = false
         
@@ -35,26 +54,30 @@ struct MyRoutinesView: View {
                 Color.surface.edgesIgnoringSafeArea(.all)
                 ScrollView {
                     //This will ForEach all of the lists
-                    ForEach(0..<self.practiceRoutines.count) {
-                        
-                        CardView(practiceRoutine: self.practiceRoutines[$0])
+                    ForEach(self.practiceRoutines) { practiceRoutine in
+                        NavigationLink(destination: Text(practiceRoutine.routineTitle!)){
+                        CardView(practiceRoutine: practiceRoutine)
+                        }
                     }
                 }
-            }.navigationBarTitle(Text("My Routines").foregroundColor(Color.white), displayMode: .inline)
+            }
+            .navigationBarTitle(Text("My Routines").foregroundColor(Color.white), displayMode: .inline)
                 .navigationBarItems(
                     leading: Button(action: {print("filter")}) {
                         Image(systemName: "slider.horizontal.3")
                             .resizable()
-                            .frame(width: 20, height: 20)
+                            .font(.system(size: 20, weight: .bold))
+                            .frame(width: 23, height: 23)
                             .foregroundColor(Color.white)
                     },
                     trailing: Button(action: {print("Add item")}) {
                         Image(systemName: "plus")
                             .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color.white)
+                            .frame(width: 23, height: 23)
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(Color.primary)
                 })
-        }
+            }.navigationViewStyle(StackNavigationViewStyle()).zIndex(0)
     }
 }
 

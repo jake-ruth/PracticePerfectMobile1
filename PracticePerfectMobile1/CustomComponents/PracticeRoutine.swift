@@ -11,6 +11,6 @@ import Foundation
 public class PracticeRoutine: Identifiable {
     public var uuid:UUID?
     public var routineTitle: String?
-    public var practiceItems: Array<String>?
+    public var practiceItems: Array<PracticeItem>?
     public var isFavorite: Bool?
 }

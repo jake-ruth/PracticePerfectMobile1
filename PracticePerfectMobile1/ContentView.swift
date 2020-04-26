@@ -11,9 +11,9 @@ import FirebaseDatabase
 
 struct ContentView: View {
     @EnvironmentObject var session: SessionStore
-    @State private var selected = 1
+    @State var index = 0
     @State private var loaded: Bool = false
-
+    
     var ref: DatabaseReference! = Database.database().reference()
     
     func getUser() {
@@ -24,49 +24,32 @@ struct ContentView: View {
         self.ref.child("users").child("test").setValue(["username" : "TEST"])
     }
     
-    
-    // Sets the bottom tab background color
-    init(){
-        UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().barTintColor = UIColor(named: "card")
-    }
-    
     var body: some View {
         Group {
             if (self.loaded == false){
                 Text("loading...")
             }
-            
+                
             else if (session.session != nil) {
-                TabView(selection: $selected) {
-                    HomeView()
-                        .tabItem({
-                            Image(systemName: "music.house.fill").foregroundColor(.white)
-                            Text("Home")
-                        }).tag(0).foregroundColor(.white)
+                VStack {
+                    ZStack {
+                        if (self.index == 0){
+                            HomeView()
+                        }
+                        else if (self.index == 1){
+                            MyRoutinesView()
+                        }
+                        else if (self.index == 2){
+                            MetronomeView()
+                        }
+                        else if (self.index == 3){
+                            SettingsView()
+                        }
+                    }
+                    TabBar(index: $index).edgesIgnoringSafeArea(.all)
                     
-                    MyRoutinesView()
-                        .tabItem({
-                            Image(systemName: "music.note.list")
-                            Text("My Routines")
-                        }).tag(1)
-                    
-                    MetronomeView()
-                        .tabItem({
-                            Image(systemName: "music.note")
-                            Text("Tools")
-                        }).tag(2)
-                    
-                    SettingsView()
-                        .tabItem({
-                            Image(systemName: "gear")
-                            Text("Settings")
-                        }).tag(3)
-                    
-                }
-                .background(Color.black)
-                .accentColor(Color.primary)
-                .font(.headline)
+                }.animation(.spring())
+                
             } else if (self.loaded == true && session.session == nil) {
                 AuthView()
             }
@@ -81,6 +64,8 @@ extension Color {
     static let surface = Color("surface")
     static let card = Color("card")
     static let cardShadow = Color("cardShadow")
+    static let card2 = Color("card2")
+    static let test1 = Color("test1")
 }
 
 struct ContentView_Previews: PreviewProvider {

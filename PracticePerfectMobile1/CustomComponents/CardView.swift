@@ -9,50 +9,46 @@
 import SwiftUI
 
 struct CardView: View {
+    
     let practiceRoutine: PracticeRoutine
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .fill(Color.card)
-                //.shadow(color: Color.gray, radius: 10)
-            
+            RoundedRectangle(cornerRadius: 7, style: .continuous).fill(Color.card2).overlay(RoundedRectangle(cornerRadius: 7)
+                .stroke(Color.card, lineWidth: 1))
             VStack {
                 HStack{
                     
                     Text(practiceRoutine.routineTitle!)
-                        .font(.system(size: 20))
+                        .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(.white)
                     Spacer()
                     Button(action: {print("Favorite Logic")}) {
-                        Image(systemName: "star").font(.system(size: 20, weight: .medium)).foregroundColor(Color.white)
+                        Image(systemName: "star").font(.system(size: 22, weight: .semibold)).foregroundColor(Color.white)
                     }
                 }
+                Divider()
                 
-                List {
+                HStack {
                     
+                VStack(alignment: .leading) {
                     ForEach(0..<self.practiceRoutine.practiceItems!.count) {
-                        
-                        Text(self.practiceRoutine.practiceItems![$0])
+                        Text("\(self.practiceRoutine.practiceItems![$0].title!) - \(self.practiceRoutine.practiceItems![$0].minutes!) min")
                             .font(.system(size: 15))
                             .foregroundColor(.white)
                     }
-                }.environment(\.defaultMinListRowHeight, 10)
-                HStack {
-                    Button(action: {print("Select")}){
-                        Text("SELECT").foregroundColor(Color.primary).font(.system(size: 18))
-                    }
-                    Spacer()
-                    Button(action: {print("Delete")}){
-                        Text("DELETE").foregroundColor(Color.secondary).font(.system(size: 18))
-                    }
+                }
+                Spacer()
+                    Image(systemName: "chevron.right")
+                    .foregroundColor(Color.white)
                 }
             }
-            .padding(20)
-            .multilineTextAlignment(.center)
+            .padding(10)
         }
-        .frame(height: 250)
-        .padding()
+        .frame(maxHeight: .infinity)
+        .padding(.horizontal, 10)
+        .padding(.top, 10)
+        .padding(.bottom, 0)
     }
 }
 
