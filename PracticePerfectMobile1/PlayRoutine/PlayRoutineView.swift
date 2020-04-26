@@ -18,7 +18,7 @@ struct PlayRoutineView: View {
     @State var seconds: Int = 0
     @State var playing: Bool = true
     @State var showAlert: Bool = false
-    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
     @State var showMetronome: Bool = false
     @State var audioPlayer: AVAudioPlayer?
     
@@ -32,9 +32,7 @@ struct PlayRoutineView: View {
     func playFinishSound(){
         let path = Bundle.main.path(forResource: "completed1", ofType: "wav")!
         let url = URL(fileURLWithPath: path)
-        
         do {
-            print("Playing")
             self.audioPlayer = try AVAudioPlayer(contentsOf: url)
             self.audioPlayer?.play()
         } catch {
@@ -45,9 +43,6 @@ struct PlayRoutineView: View {
     func incrementPracticeItemIndex() {
         //First cancel all notifications
         NotificationUtil.cancelAllNotifications()
-        
-        let soundUtil = SoundUtil()
-        soundUtil.playFinishSound(audioPlayer: audioPlayer)
         if (self.practiceItemIndex < self.practiceItemsStored.count - 1) {
             self.practiceItemIndex += 1
             self.seconds = self.practiceItemsStored[self.practiceItemIndex].minutes as! Int * 60
@@ -70,7 +65,6 @@ struct PlayRoutineView: View {
     
     func handlePlaying() {
         self.playing.toggle()
-
         if (self.playing == false){
             NotificationUtil.cancelAllNotifications()
         } else if (self.playing == true){

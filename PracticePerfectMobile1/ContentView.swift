@@ -12,12 +12,14 @@ import FirebaseDatabase
 struct ContentView: View {
     @EnvironmentObject var session: SessionStore
     @State private var selected = 1
+    @State private var loaded: Bool = false
 
     var ref: DatabaseReference! = Database.database().reference()
     
     func getUser() {
+        //Promisify this
         session.listen()
-        
+        self.loaded = true
         // Firebase test
         self.ref.child("users").child("test").setValue(["username" : "TEST"])
     }
@@ -31,7 +33,11 @@ struct ContentView: View {
     
     var body: some View {
         Group {
-            if (session.session != nil) {
+            if (self.loaded == false){
+                Text("loading...")
+            }
+            
+            else if (session.session != nil) {
                 TabView(selection: $selected) {
                     HomeView()
                         .tabItem({
@@ -61,7 +67,7 @@ struct ContentView: View {
                 .background(Color.black)
                 .accentColor(Color.primary)
                 .font(.headline)
-            } else {
+            } else if (self.loaded == true && session.session == nil) {
                 AuthView()
             }
         }.onAppear(perform: getUser)
@@ -74,6 +80,7 @@ extension Color {
     static let secondary = Color("secondary")
     static let surface = Color("surface")
     static let card = Color("card")
+    static let cardShadow = Color("cardShadow")
 }
 
 struct ContentView_Previews: PreviewProvider {

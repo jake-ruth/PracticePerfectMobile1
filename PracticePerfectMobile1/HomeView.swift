@@ -10,11 +10,15 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        ZStack {
-            Color.surface.edgesIgnoringSafeArea(.all)
-        ScrollView {
-            Text("Favorite Routines").foregroundColor(Color.white)
-        }
+        NavigationView {
+            
+            ZStack {
+                Color.surface.edgesIgnoringSafeArea(.all)
+                ScrollView {
+                    Text("HERE")
+                }
+            }
+            .navigationBarTitle(Text("Dashboard").foregroundColor(Color.white), displayMode: .inline)
         }
     }
 }
