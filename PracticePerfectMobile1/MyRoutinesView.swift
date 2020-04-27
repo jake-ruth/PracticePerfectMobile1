@@ -51,7 +51,7 @@ struct MyRoutinesView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.surface.edgesIgnoringSafeArea(.all)
+                //Color.surface.edgesIgnoringSafeArea(.all)
                 ScrollView {
                     //This will ForEach all of the lists
                     ForEach(self.practiceRoutines) { practiceRoutine in

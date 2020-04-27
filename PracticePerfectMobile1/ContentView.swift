@@ -46,7 +46,7 @@ struct ContentView: View {
                             SettingsView()
                         }
                     }
-                    TabBar(index: $index).edgesIgnoringSafeArea(.all)
+                    TabBar(index: $index)
                     
                 }.animation(.spring())
                 

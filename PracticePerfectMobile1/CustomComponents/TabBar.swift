@@ -12,6 +12,8 @@ struct TabBar : View {
     @Binding var index: Int
     
     var body : some View {
+        ZStack {
+            Color.card2.edgesIgnoringSafeArea(.bottom)
         HStack (spacing: 15) {
             HStack {
                 Image(systemName: "house.fill").resizable().frame(width: 30, height: 25)
@@ -61,5 +63,6 @@ struct TabBar : View {
             .frame(width: UIScreen.main.bounds.width)
             .background(Color.card2)
             .animation(.default)
+        }.frame(idealHeight: 50, maxHeight: 70)
     }
 }

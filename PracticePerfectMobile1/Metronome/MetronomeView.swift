@@ -56,7 +56,7 @@ struct MetronomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.surface.edgesIgnoringSafeArea(.all)
+                //Color.surface.edgesIgnoringSafeArea(.all)
                 VStack {
                     Text(String(Int(self.bpm)))
                     Slider(value: $bpm, in: 40.0...320, step: 1).padding()
