@@ -28,6 +28,9 @@
 		8422F9B32440096C005501E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B22440096C005501E1 /* SettingsView.swift */; };
 		8422F9B524400988005501E1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B424400988005501E1 /* HomeView.swift */; };
 		8422F9B724400A38005501E1 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B624400A38005501E1 /* HostingController.swift */; };
+		842850C724578764001C3768 /* CreateRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842850C624578764001C3768 /* CreateRoutineView.swift */; };
+		842850C92457A48B001C3768 /* AddItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842850C82457A48B001C3768 /* AddItemSheet.swift */; };
+		842850CC2457ABEA001C3768 /* NewPracticeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842850CB2457ABEA001C3768 /* NewPracticeItem.swift */; };
 		842C2C7D2453B31900053273 /* MetronomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C2C7C2453B31900053273 /* MetronomeIcon.png */; };
 		842C2C7F2453B3CE00053273 /* MetronomeIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */; };
 		842EA42E2448B4A40004E767 /* PracticeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EA42D2448B4A40004E767 /* PracticeItem.swift */; };
@@ -36,7 +39,6 @@
 		84A94355245255830016B49D /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A94354245255830016B49D /* NotificationUtil.swift */; };
 		84A9435724525D9C0016B49D /* SoundUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9435624525D9C0016B49D /* SoundUtil.swift */; };
 		84A9435B245260280016B49D /* completed1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A9435A245260280016B49D /* completed1.wav */; };
-		84E1D3E82448F2A30079A843 /* PracticeItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1D3E72448F2A30079A843 /* PracticeItemModel.swift */; };
 		84EEC35F2440B108005616B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EEC35E2440B108005616B4 /* GoogleService-Info.plist */; };
 		84EEC3612440B160005616B4 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3602440B160005616B4 /* SessionStore.swift */; };
 		84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC3622440B6A9005616B4 /* AuthView.swift */; };
@@ -98,6 +100,9 @@
 		8422F9B22440096C005501E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8422F9B424400988005501E1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8422F9B624400A38005501E1 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		842850C624578764001C3768 /* CreateRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoutineView.swift; sourceTree = "<group>"; };
+		842850C82457A48B001C3768 /* AddItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemSheet.swift; sourceTree = "<group>"; };
+		842850CB2457ABEA001C3768 /* NewPracticeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPracticeItem.swift; sourceTree = "<group>"; };
 		842C2C7C2453B31900053273 /* MetronomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MetronomeIcon.png; sourceTree = "<group>"; };
 		842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MetronomeIcon2.png; sourceTree = "<group>"; };
 		842EA42D2448B4A40004E767 /* PracticeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeItem.swift; sourceTree = "<group>"; };
@@ -106,7 +111,6 @@
 		84A94354245255830016B49D /* NotificationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
 		84A9435624525D9C0016B49D /* SoundUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundUtil.swift; sourceTree = "<group>"; };
 		84A9435A245260280016B49D /* completed1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = completed1.wav; sourceTree = "<group>"; };
-		84E1D3E72448F2A30079A843 /* PracticeItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeItemModel.swift; sourceTree = "<group>"; };
 		84EEC35E2440B108005616B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84EEC3602440B160005616B4 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		84EEC3622440B6A9005616B4 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -166,7 +170,6 @@
 				8412E9802442042100637FFC /* CustomSecureField.swift */,
 				840C69202450C4A200981D98 /* MultilineTextView.swift */,
 				840548722454D78D0088F0C5 /* CardView.swift */,
-				840548742454D7D60088F0C5 /* PracticeRoutine.swift */,
 				840AB2DA245618620087E8EB /* TabBar.swift */,
 			);
 			path = CustomComponents;
@@ -197,13 +200,15 @@
 		8422F97C24400902005501E1 /* PracticePerfectMobile1 */ = {
 			isa = PBXGroup;
 			children = (
+				842850CA2457A50B001C3768 /* Models */,
+				842850C524578748001C3768 /* CreateRoutine */,
 				8427DCAE24466DFD0034B1FE /* PlayRoutine */,
 				8412E9822442053C00637FFC /* CustomComponents */,
 				84EEC36C2440E904005616B4 /* Metronome */,
-				84EEC3692440DF73005616B4 /* QuickRoutine */,
 				84EEC3642440D174005616B4 /* AuthViews */,
-				8422F97D24400902005501E1 /* AppDelegate.swift */,
+				84EEC3692440DF73005616B4 /* QuickRoutine */,
 				8422F97F24400902005501E1 /* SceneDelegate.swift */,
+				8422F97D24400902005501E1 /* AppDelegate.swift */,
 				8422F98424400902005501E1 /* ContentView.swift */,
 				8422F9B024400948005501E1 /* MyRoutinesView.swift */,
 				8422F9B424400988005501E1 /* HomeView.swift */,
@@ -261,6 +266,24 @@
 			path = PlayRoutine;
 			sourceTree = "<group>";
 		};
+		842850C524578748001C3768 /* CreateRoutine */ = {
+			isa = PBXGroup;
+			children = (
+				842850C624578764001C3768 /* CreateRoutineView.swift */,
+				842850C82457A48B001C3768 /* AddItemSheet.swift */,
+			);
+			path = CreateRoutine;
+			sourceTree = "<group>";
+		};
+		842850CA2457A50B001C3768 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				842850CB2457ABEA001C3768 /* NewPracticeItem.swift */,
+				840548742454D7D60088F0C5 /* PracticeRoutine.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		84EEC3642440D174005616B4 /* AuthViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,7 +300,6 @@
 				84EEC36A2440DF80005616B4 /* QuickRoutineView.swift */,
 				8455A80C24425AB80049D5A5 /* AddItemModal.swift */,
 				842EA42D2448B4A40004E767 /* PracticeItem.swift */,
-				84E1D3E72448F2A30079A843 /* PracticeItemModel.swift */,
 			);
 			path = QuickRoutine;
 			sourceTree = "<group>";
@@ -548,19 +570,21 @@
 			files = (
 				84A94355245255830016B49D /* NotificationUtil.swift in Sources */,
 				84A9435724525D9C0016B49D /* SoundUtil.swift in Sources */,
+				842850C92457A48B001C3768 /* AddItemSheet.swift in Sources */,
 				84A9435324524B6E0016B49D /* MetronomeSheet.swift in Sources */,
 				8455A80D24425AB80049D5A5 /* AddItemModal.swift in Sources */,
 				8422F97E24400902005501E1 /* AppDelegate.swift in Sources */,
 				8422F9B524400988005501E1 /* HomeView.swift in Sources */,
+				842850CC2457ABEA001C3768 /* NewPracticeItem.swift in Sources */,
 				84EEC36B2440DF80005616B4 /* QuickRoutineView.swift in Sources */,
 				84EEC36E2440EB0B005616B4 /* MetronomeView.swift in Sources */,
 				8422F9B724400A38005501E1 /* HostingController.swift in Sources */,
 				840C69212450C4A200981D98 /* MultilineTextView.swift in Sources */,
 				84057449244BD4FE00920CEB /* CountdownView.swift in Sources */,
-				84E1D3E82448F2A30079A843 /* PracticeItemModel.swift in Sources */,
 				8422F98024400902005501E1 /* SceneDelegate.swift in Sources */,
 				84EEC3682440D1D1005616B4 /* SignUpView.swift in Sources */,
 				8422F98524400902005501E1 /* ContentView.swift in Sources */,
+				842850C724578764001C3768 /* CreateRoutineView.swift in Sources */,
 				8412E9812442042100637FFC /* CustomSecureField.swift in Sources */,
 				84EEC3612440B160005616B4 /* SessionStore.swift in Sources */,
 				84EEC3632440B6A9005616B4 /* AuthView.swift in Sources */,

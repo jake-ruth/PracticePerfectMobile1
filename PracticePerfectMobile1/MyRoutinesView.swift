@@ -9,23 +9,22 @@
 import SwiftUI
 
 struct MyRoutinesView: View {
-    @Environment(\.managedObjectContext) var moc
     var practiceRoutines:Array<PracticeRoutine> = []
     
     init() {
-        let practiceItem1 = PracticeItem(context: self.moc)
+        let practiceItem1 = NewPracticeItem()
         practiceItem1.uuid = UUID()
         practiceItem1.title = "Practice Scales"
         practiceItem1.details = "Practice in Every key"
         practiceItem1.minutes = 20
         
-        let practiceItem2 = PracticeItem(context: self.moc)
+        let practiceItem2 = NewPracticeItem()
         practiceItem2.uuid = UUID()
         practiceItem2.title = "Practice Something"
         practiceItem2.details = "Practice in Every key"
         practiceItem2.minutes = 10
         
-        let practiceItem3 = PracticeItem(context: self.moc)
+        let practiceItem3 = NewPracticeItem()
         practiceItem3.uuid = UUID()
         practiceItem3.title = "Practice Song"
         practiceItem3.details = "Practice in Every key"
@@ -70,7 +69,7 @@ struct MyRoutinesView: View {
                             .frame(width: 23, height: 23)
                             .foregroundColor(Color.white)
                     },
-                    trailing: Button(action: {print("Add item")}) {
+                    trailing: NavigationLink(destination: CreateRoutineView()) {
                         Image(systemName: "plus")
                             .resizable()
                             .frame(width: 23, height: 23)

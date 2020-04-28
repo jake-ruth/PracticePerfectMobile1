@@ -33,7 +33,7 @@ struct CardView: View {
                     
                 VStack(alignment: .leading) {
                     ForEach(0..<self.practiceRoutine.practiceItems!.count) {
-                        Text("\(self.practiceRoutine.practiceItems![$0].title!) - \(self.practiceRoutine.practiceItems![$0].minutes!) min")
+                        Text("\(self.practiceRoutine.practiceItems![$0].title!) - \(self.practiceRoutine.practiceItems![$0].minutes) min")
                             .font(.system(size: 15))
                             .foregroundColor(.white)
                     }
