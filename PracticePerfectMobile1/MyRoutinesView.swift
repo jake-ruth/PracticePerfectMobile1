@@ -12,6 +12,15 @@ struct MyRoutinesView: View {
     var practiceRoutines:Array<PracticeRoutine> = []
     
     init() {
+        
+//        FirebaseConstants.practiceRoutinesRef.observe(DataEventType.value, with: { (snapshot) in
+//          let practiceRoutineDict = snapshot.value as? [String : AnyObject] ?? [:]
+//            print("Dict: ", practiceRoutineDict)
+//
+//            let practiceRoutine = PracticeRoutine()
+//            practiceRoutine = practiceRoutineDict[]
+//        })
+        
         let practiceItem1 = NewPracticeItem()
         practiceItem1.uuid = UUID()
         practiceItem1.title = "Practice Scales"

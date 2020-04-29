@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import FirebaseDatabase
+import Firebase
+
+public class FirebaseConstants {
+    static let rootRef:DatabaseReference! = Database.database().reference()
+    
+    static let currentUid = Auth.auth().currentUser?.uid
+    
+    static let practiceRoutinesRef = rootRef.child("practiceRoutines").child(currentUid ?? "")
+}

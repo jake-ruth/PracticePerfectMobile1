@@ -13,4 +13,21 @@ public class PracticeRoutine: Identifiable {
     public var routineTitle: String?
     public var practiceItems: Array<NewPracticeItem>?
     public var isFavorite: Bool?
+    
+    
+    //For Firebase
+    public func toDictionary() -> NSDictionary {
+        var nsPracticeItems: Array<NSDictionary> = []
+        
+        //Convert practice items to dictionary
+        for practiceItem in practiceItems! {
+            print(practiceItem)
+            nsPracticeItems.append(practiceItem.toDictionary())
+        }
+        
+        return ["uuid": uuid!.uuidString,
+                "routineTitle": routineTitle!,
+                "practiceItems": nsPracticeItems,
+                "isFavorite" : isFavorite!]
+    }
 }

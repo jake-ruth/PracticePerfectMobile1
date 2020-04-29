@@ -15,8 +15,6 @@ struct CreateRoutineView: View {
     @State var addPracticeItem: Bool = false
     @State var routineTitle: String = "initial"
     @State var isFavorite: Bool = false
-    var ref: DatabaseReference! = Database.database().reference()
-    var uid = Auth.auth().currentUser?.uid
     
     func saveRoutine(){
         print("saving routine")
@@ -27,18 +25,21 @@ struct CreateRoutineView: View {
         practiceRoutine.practiceItems = self.practiceItems
         practiceRoutine.isFavorite = self.isFavorite
         
-        //Needs to be of certain types for firebase! Doesn't work yet
-        self.ref.child("practiceRoutines").child(uid ?? "").setValue(["practiceRoutine" : practiceRoutine])
+        let practiceRoutineDictionary = practiceRoutine.toDictionary();
+        print(practiceRoutineDictionary)
+        
+        //Add dictionary to firebase
+        FirebaseConstants.practiceRoutinesRef.childByAutoId().setValue(practiceRoutineDictionary)
         
     }
     
     func addItem(){
-        let practiceItem1 = NewPracticeItem()
-        practiceItem1.uuid = UUID()
-        practiceItem1.title = "Practice Scales"
-        practiceItem1.details = "Practice in Every key"
-        practiceItem1.minutes = 20
-        self.practiceItems.append(practiceItem1);
+        let practiceItem = NewPracticeItem()
+        practiceItem.uuid = UUID()
+        practiceItem.title = "Practice Scales"
+        practiceItem.details = "Practice in Every key"
+        practiceItem.minutes = 20
+        self.practiceItems.append(practiceItem);
     }
     
     var body: some View {
@@ -62,19 +63,29 @@ struct CreateRoutineView: View {
                         }
                         //.onMove(perform: moveItem)
                     }
-                    HStack {
-                        
-                        Button(action: { self.addPracticeItem.toggle() }){
-                            Text("Add Practice Item")
-                        }
-                        Spacer()
-                        Button(action: { self.saveRoutine() }){
-                            Text("Save Routine")
-                        }
+                    Spacer()
+                    Button(action: { self.saveRoutine() }){
+                        Text("SAVE ROUTINE")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 40)
+                        .foregroundColor(.white)
+                        .font(.system(size: 14, weight: .bold))
+                        .background(Color.primary)
+                        .cornerRadius(5)
+                        .padding(14)
                     }
                 }
             }
-        }.navigationBarTitle(Text("Create Routine").foregroundColor(Color.white), displayMode: .inline)
+        }
+        .navigationBarItems(
+            trailing: Button(action: { self.addPracticeItem.toggle() }) {
+                Image(systemName: "plus")
+                    .resizable()
+                    .frame(width: 23, height: 23)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(Color.primary)
+        })
+            .navigationBarTitle(Text("Create Routine").foregroundColor(Color.white), displayMode: .inline)
             .sheet(isPresented: $addPracticeItem, content: { AddItemSheet(show: self.$addPracticeItem, practiceItems: self.$practiceItems) })
     }
 }

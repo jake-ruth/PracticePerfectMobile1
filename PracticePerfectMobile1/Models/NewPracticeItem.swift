@@ -14,4 +14,10 @@ public class NewPracticeItem: Identifiable {
     public var details: String?
     public var minutes: Int = 1
     public var index: Int?
+    
+    
+    //For Firebase
+    public func toDictionary() -> NSDictionary{
+        return ["uuid" : uuid!.uuidString, "title" : self.title!, "details" : self.details!, "minutes" : self.minutes, "index": self.index!]
+    }
 }

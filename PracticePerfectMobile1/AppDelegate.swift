@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.isIdleTimerDisabled = true
         
         //Custom background color for lists
-        UITableView.appearance().backgroundColor = UIColor.init(named: "surface")
+        //UITableView.appearance().backgroundColor = UIColor.init(named: "surface")
 
         //Configure firebase
         FirebaseApp.configure()
