@@ -9,7 +9,6 @@
 import Foundation
 
 public class NewPracticeItem: Identifiable {
-    public var uuid: UUID?
     public var title: String?
     public var details: String?
     public var minutes: Int = 1
@@ -18,6 +17,10 @@ public class NewPracticeItem: Identifiable {
     
     //For Firebase
     public func toDictionary() -> NSDictionary{
-        return ["uuid" : uuid!.uuidString, "title" : self.title!, "details" : self.details!, "minutes" : self.minutes, "index": self.index!]
+        return [ "title" : self.title!, "details" : self.details!, "minutes" : self.minutes, "index": self.index!]
+    }
+    
+    public func toClass() -> NewPracticeItem{
+        return NewPracticeItem()
     }
 }

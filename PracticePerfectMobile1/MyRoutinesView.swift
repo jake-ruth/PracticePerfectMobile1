@@ -7,53 +7,21 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseDatabase
+import Combine
 
 struct MyRoutinesView: View {
-    var practiceRoutines:Array<PracticeRoutine> = []
+    @State var practiceRoutines:Array<PracticeRoutine> = []
+    @EnvironmentObject var firebaseController: FirebaseController
     
     init() {
+        //print("CONTROLLER: ", self.firebaseController.testString)
         
-//        FirebaseConstants.practiceRoutinesRef.observe(DataEventType.value, with: { (snapshot) in
-//          let practiceRoutineDict = snapshot.value as? [String : AnyObject] ?? [:]
-//            print("Dict: ", practiceRoutineDict)
-//
-//            let practiceRoutine = PracticeRoutine()
-//            practiceRoutine = practiceRoutineDict[]
-//        })
+        //self.practiceRoutines = FirebaseController.fetchAllRoutines()
+        //self.practiceRoutines = routines
         
-        let practiceItem1 = NewPracticeItem()
-        practiceItem1.uuid = UUID()
-        practiceItem1.title = "Practice Scales"
-        practiceItem1.details = "Practice in Every key"
-        practiceItem1.minutes = 20
-        
-        let practiceItem2 = NewPracticeItem()
-        practiceItem2.uuid = UUID()
-        practiceItem2.title = "Practice Something"
-        practiceItem2.details = "Practice in Every key"
-        practiceItem2.minutes = 10
-        
-        let practiceItem3 = NewPracticeItem()
-        practiceItem3.uuid = UUID()
-        practiceItem3.title = "Practice Song"
-        practiceItem3.details = "Practice in Every key"
-        practiceItem3.minutes = 20
-        
-        //Fetch routines from firebase eventually
-        let practiceRoutine1 = PracticeRoutine()
-        practiceRoutine1.routineTitle = "Jake's Routine"
-        practiceRoutine1.practiceItems = [practiceItem1, practiceItem2, practiceItem3]
-        practiceRoutine1.uuid = UUID()
-        practiceRoutine1.isFavorite = false
-        
-        let practiceRoutine2 = PracticeRoutine()
-        practiceRoutine2.routineTitle = "Erika's Routine"
-        practiceRoutine2.practiceItems = [practiceItem1, practiceItem3]
-        practiceRoutine2.uuid = UUID()
-        practiceRoutine2.isFavorite = false
-        
-        self.practiceRoutines.append(practiceRoutine1)
-        self.practiceRoutines.append(practiceRoutine2)
+            //practiceRoutine = practiceRoutineDict
     }
     
     var body: some View {
@@ -62,11 +30,12 @@ struct MyRoutinesView: View {
                 //Color.surface.edgesIgnoringSafeArea(.all)
                 ScrollView {
                     //This will ForEach all of the lists
-                    ForEach(self.practiceRoutines) { practiceRoutine in
+                    ForEach(self.firebaseController.practiceRoutines) { practiceRoutine in
                         NavigationLink(destination: Text(practiceRoutine.routineTitle!)){
                         CardView(practiceRoutine: practiceRoutine)
                         }
                     }
+                    Text(self.firebaseController.testString)
                 }
             }
             .navigationBarTitle(Text("My Routines").foregroundColor(Color.white), displayMode: .inline)

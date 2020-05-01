@@ -35,7 +35,7 @@ struct CreateRoutineView: View {
     
     func addItem(){
         let practiceItem = NewPracticeItem()
-        practiceItem.uuid = UUID()
+        //practiceItem.uuid = UUID()
         practiceItem.title = "Practice Scales"
         practiceItem.details = "Practice in Every key"
         practiceItem.minutes = 20

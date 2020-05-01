@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 struct ContentView: View {
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var firebaseController: FirebaseController
     @State var index = 0
     @State private var loaded: Bool = false
     
@@ -37,7 +38,7 @@ struct ContentView: View {
                             HomeView()
                         }
                         else if (self.index == 1){
-                            MyRoutinesView()
+                            MyRoutinesView().environmentObject(self.firebaseController)
                         }
                         else if (self.index == 2){
                             MetronomeView()

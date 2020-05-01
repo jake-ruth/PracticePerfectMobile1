@@ -27,7 +27,7 @@ struct AddItemSheet: View {
     
     func addNewPracticeItem(){
         let practiceItem = NewPracticeItem()
-        practiceItem.uuid = UUID()
+        //practiceItem.uuid = UUID()
         practiceItem.title = self.title
         practiceItem.details = self.details
         practiceItem.minutes = self.minutes + 1
