@@ -34,6 +34,7 @@
 		842C2C7D2453B31900053273 /* MetronomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C2C7C2453B31900053273 /* MetronomeIcon.png */; };
 		842C2C7F2453B3CE00053273 /* MetronomeIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */; };
 		842EA42E2448B4A40004E767 /* PracticeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EA42D2448B4A40004E767 /* PracticeItem.swift */; };
+		844943B7245CF40D006750CC /* SingleRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844943B6245CF40D006750CC /* SingleRoutineView.swift */; };
 		8455A80D24425AB80049D5A5 /* AddItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A80C24425AB80049D5A5 /* AddItemModal.swift */; };
 		84A9435324524B6E0016B49D /* MetronomeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9435224524B6E0016B49D /* MetronomeSheet.swift */; };
 		84A94355245255830016B49D /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A94354245255830016B49D /* NotificationUtil.swift */; };
@@ -108,6 +109,7 @@
 		842C2C7C2453B31900053273 /* MetronomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MetronomeIcon.png; sourceTree = "<group>"; };
 		842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MetronomeIcon2.png; sourceTree = "<group>"; };
 		842EA42D2448B4A40004E767 /* PracticeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeItem.swift; sourceTree = "<group>"; };
+		844943B6245CF40D006750CC /* SingleRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRoutineView.swift; sourceTree = "<group>"; };
 		8455A80C24425AB80049D5A5 /* AddItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemModal.swift; sourceTree = "<group>"; };
 		84A9435224524B6E0016B49D /* MetronomeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeSheet.swift; sourceTree = "<group>"; };
 		84A94354245255830016B49D /* NotificationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				8422F97D24400902005501E1 /* AppDelegate.swift */,
 				8422F98424400902005501E1 /* ContentView.swift */,
 				8422F9B024400948005501E1 /* MyRoutinesView.swift */,
+				844943B6245CF40D006750CC /* SingleRoutineView.swift */,
 				8422F9B424400988005501E1 /* HomeView.swift */,
 				8422F9B22440096C005501E1 /* SettingsView.swift */,
 				842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */,
@@ -583,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A94355245255830016B49D /* NotificationUtil.swift in Sources */,
+				844943B7245CF40D006750CC /* SingleRoutineView.swift in Sources */,
 				84A9435724525D9C0016B49D /* SoundUtil.swift in Sources */,
 				842850C92457A48B001C3768 /* AddItemSheet.swift in Sources */,
 				84A9435324524B6E0016B49D /* MetronomeSheet.swift in Sources */,

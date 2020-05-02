@@ -14,7 +14,6 @@ import Combine
 class FirebaseController: ObservableObject {
     
     @Published var practiceRoutines: [PracticeRoutine] = []
-    @Published var testString = "testString"
     
     init(){
         fetchAllRoutines()

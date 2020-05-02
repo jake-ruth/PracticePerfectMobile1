@@ -15,15 +15,6 @@ struct MyRoutinesView: View {
     @State var practiceRoutines:Array<PracticeRoutine> = []
     @EnvironmentObject var firebaseController: FirebaseController
     
-    init() {
-        //print("CONTROLLER: ", self.firebaseController.testString)
-        
-        //self.practiceRoutines = FirebaseController.fetchAllRoutines()
-        //self.practiceRoutines = routines
-        
-            //practiceRoutine = practiceRoutineDict
-    }
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -31,11 +22,10 @@ struct MyRoutinesView: View {
                 ScrollView {
                     //This will ForEach all of the lists
                     ForEach(self.firebaseController.practiceRoutines) { practiceRoutine in
-                        NavigationLink(destination: Text(practiceRoutine.routineTitle!)){
+                        NavigationLink(destination: SingleRoutineView(routine: practiceRoutine)){
                         CardView(practiceRoutine: practiceRoutine)
                         }
                     }
-                    Text(self.firebaseController.testString)
                 }
             }
             .navigationBarTitle(Text("My Routines").foregroundColor(Color.white), displayMode: .inline)
