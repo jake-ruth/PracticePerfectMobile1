@@ -22,7 +22,7 @@ struct MyRoutinesView: View {
                 ScrollView {
                     //This will ForEach all of the lists
                     ForEach(self.firebaseController.practiceRoutines) { practiceRoutine in
-                        NavigationLink(destination: SingleRoutineView(routine: practiceRoutine)){
+                        NavigationLink(destination: SingleRoutineView(practiceRoutine: practiceRoutine)){
                         CardView(practiceRoutine: practiceRoutine)
                         }
                     }

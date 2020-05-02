@@ -15,5 +15,11 @@ public class FirebaseConstants {
     
     static let currentUid = Auth.auth().currentUser?.uid
     
+    //Fails currently
     static let practiceRoutinesRef = rootRef.child("practiceRoutines").child(currentUid ?? "")
+    
+    //Get ref for a single practice routine by key
+    static func getSingleRoutineRef(key: String) -> DatabaseReference{
+        return rootRef.child("practiceRoutines").child(currentUid ?? "").child(key)
+    }
 }

@@ -12,7 +12,6 @@ import Combine
 
 //Our global application state for firebase data
 class FirebaseController: ObservableObject {
-    
     @Published var practiceRoutines: [PracticeRoutine] = []
     
     init(){
@@ -26,32 +25,40 @@ class FirebaseController: ObservableObject {
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let value = snap.value as? [String: Any]
+                let key = snap.key
                 
                 //Build up Practice Routine
                 let practiceRoutine = PracticeRoutine()
                 practiceRoutine.uuid = value?["uuid"] as? UUID
                 practiceRoutine.routineTitle = value?["routineTitle"] as? String
                 practiceRoutine.isFavorite = value?["isFavorite"] as? Bool
+                practiceRoutine.firebaseKey = key
                 
+                //items is an array of dictionaries
                 let items = value?["practiceItems"] as! Array<[String: Any]>
-                var newPracticeItems:[NewPracticeItem] = []
 
+                var practiceItems:[NewPracticeItem] = []
+                
+                //Build up practice items for routine
                 for item in items {
                     let practiceItem = NewPracticeItem()
                     practiceItem.index = item["index"] as? Int
                     practiceItem.title = item["title"] as? String
                     practiceItem.details = item["details"] as? String
                     practiceItem.minutes = item["minutes"] as? Int ?? 0
-                    newPracticeItems.append(practiceItem)
+                    practiceItems.append(practiceItem)
                 }
                 
-                practiceRoutine.practiceItems = newPracticeItems
+                practiceRoutine.practiceItems = practiceItems
                 
                 self.practiceRoutines.append(practiceRoutine)
             }
         }
-        
-        print(practiceRoutines)
+    }
+    
+    static func updateRoutine(practiceRoutine: PracticeRoutine) -> Void {
+        let singleRoutineRef = FirebaseConstants.getSingleRoutineRef(key: practiceRoutine.firebaseKey ?? "")
+        singleRoutineRef.updateChildValues(practiceRoutine.toDictionary() as! [AnyHashable : Any])
     }
     
 }

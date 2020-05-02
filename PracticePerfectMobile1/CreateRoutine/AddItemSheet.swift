@@ -27,7 +27,6 @@ struct AddItemSheet: View {
     
     func addNewPracticeItem(){
         let practiceItem = NewPracticeItem()
-        //practiceItem.uuid = UUID()
         practiceItem.title = self.title
         practiceItem.details = self.details
         practiceItem.minutes = self.minutes + 1
@@ -68,7 +67,7 @@ struct AddItemSheet: View {
                     }
                     
                     Button(action: {self.addNewPracticeItem()}){
-                        Text("Add")
+                        Text("HELLO")
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .frame(height: 40)
                             .foregroundColor(.white)
@@ -87,8 +86,8 @@ struct AddItemSheet: View {
 
 
 //For Canvas
-struct AddItemSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        AddItemModal(showModal: .constant(true))
-    }
-}
+//struct AddItemSheet_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddItemSheet(show: .constant(true))
+//    }
+//}

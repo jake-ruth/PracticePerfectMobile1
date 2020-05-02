@@ -10,10 +10,10 @@ import Foundation
 
 public class PracticeRoutine: Identifiable {
     public var uuid:UUID?
+    public var firebaseKey:String?
     public var routineTitle: String?
     public var practiceItems: Array<NewPracticeItem>?
     public var isFavorite: Bool?
-    
     
     //For Firebase
     public func toDictionary() -> NSDictionary {
@@ -25,7 +25,7 @@ public class PracticeRoutine: Identifiable {
             nsPracticeItems.append(practiceItem.toDictionary())
         }
         
-        return ["uuid": uuid!.uuidString,
+        return ["uuid": uuid?.uuidString,
                 "routineTitle": routineTitle!,
                 "practiceItems": nsPracticeItems,
                 "isFavorite" : isFavorite!]
