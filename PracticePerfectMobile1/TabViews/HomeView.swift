@@ -12,7 +12,6 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
                 ZStack {
-                    Color.surface.edgesIgnoringSafeArea(.all)
                     Text("HOME")
             }.navigationBarTitle(Text("Home").foregroundColor(Color.white), displayMode: .inline)
         }

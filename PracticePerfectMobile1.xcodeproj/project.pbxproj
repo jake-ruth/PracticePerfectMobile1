@@ -27,7 +27,6 @@
 		8422F9B124400948005501E1 /* MyRoutinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B024400948005501E1 /* MyRoutinesView.swift */; };
 		8422F9B32440096C005501E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B22440096C005501E1 /* SettingsView.swift */; };
 		8422F9B524400988005501E1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B424400988005501E1 /* HomeView.swift */; };
-		8422F9B724400A38005501E1 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422F9B624400A38005501E1 /* HostingController.swift */; };
 		84248E52245DB6B000C9777F /* PlaySingleRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248E51245DB6B000C9777F /* PlaySingleRoutineView.swift */; };
 		842850C724578764001C3768 /* CreateRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842850C624578764001C3768 /* CreateRoutineView.swift */; };
 		842850C92457A48B001C3768 /* AddItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842850C82457A48B001C3768 /* AddItemSheet.swift */; };
@@ -104,7 +103,6 @@
 		8422F9B024400948005501E1 /* MyRoutinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoutinesView.swift; sourceTree = "<group>"; };
 		8422F9B22440096C005501E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8422F9B424400988005501E1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8422F9B624400A38005501E1 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		84248E51245DB6B000C9777F /* PlaySingleRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySingleRoutineView.swift; sourceTree = "<group>"; };
 		842850C624578764001C3768 /* CreateRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoutineView.swift; sourceTree = "<group>"; };
 		842850C82457A48B001C3768 /* AddItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemSheet.swift; sourceTree = "<group>"; };
@@ -210,31 +208,27 @@
 		8422F97C24400902005501E1 /* PracticePerfectMobile1 */ = {
 			isa = PBXGroup;
 			children = (
+				8464C034245E4F09004299EF /* TabViews */,
 				84248E50245DB66900C9777F /* PlaySingleRoutine */,
 				84D8FF572458F8F3004F8D38 /* Firebase */,
 				842850CA2457A50B001C3768 /* Models */,
 				842850C524578748001C3768 /* CreateRoutine */,
 				8427DCAE24466DFD0034B1FE /* PlayRoutine */,
 				8412E9822442053C00637FFC /* CustomComponents */,
-				84EEC36C2440E904005616B4 /* Metronome */,
 				84EEC3642440D174005616B4 /* AuthViews */,
 				84EEC3692440DF73005616B4 /* QuickRoutine */,
 				8422F97F24400902005501E1 /* SceneDelegate.swift */,
 				8422F97D24400902005501E1 /* AppDelegate.swift */,
 				8422F98424400902005501E1 /* ContentView.swift */,
-				8422F9B024400948005501E1 /* MyRoutinesView.swift */,
+				84EEC3602440B160005616B4 /* SessionStore.swift */,
 				844943B6245CF40D006750CC /* SingleRoutineView.swift */,
-				8422F9B424400988005501E1 /* HomeView.swift */,
-				8422F9B22440096C005501E1 /* SettingsView.swift */,
-				842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */,
 				8422F98624400903005501E1 /* Assets.xcassets */,
 				842C2C7C2453B31900053273 /* MetronomeIcon.png */,
+				842C2C7E2453B3CE00053273 /* MetronomeIcon2.png */,
 				8422F98B24400903005501E1 /* LaunchScreen.storyboard */,
 				8422F98E24400903005501E1 /* Info.plist */,
 				84EEC35E2440B108005616B4 /* GoogleService-Info.plist */,
 				8422F98124400902005501E1 /* PracticePerfectMobile1.xcdatamodeld */,
-				84EEC3602440B160005616B4 /* SessionStore.swift */,
-				8422F9B624400A38005501E1 /* HostingController.swift */,
 				8422F98824400903005501E1 /* Preview Content */,
 			);
 			path = PracticePerfectMobile1;
@@ -306,6 +300,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8464C034245E4F09004299EF /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				8422F9B424400988005501E1 /* HomeView.swift */,
+				8422F9B024400948005501E1 /* MyRoutinesView.swift */,
+				8422F9B22440096C005501E1 /* SettingsView.swift */,
+				84EEC36D2440EB0B005616B4 /* MetronomeView.swift */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
 		84D8FF572458F8F3004F8D38 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,14 +338,6 @@
 				842EA42D2448B4A40004E767 /* PracticeItem.swift */,
 			);
 			path = QuickRoutine;
-			sourceTree = "<group>";
-		};
-		84EEC36C2440E904005616B4 /* Metronome */ = {
-			isa = PBXGroup;
-			children = (
-				84EEC36D2440EB0B005616B4 /* MetronomeView.swift */,
-			);
-			path = Metronome;
 			sourceTree = "<group>";
 		};
 		B0FD688C66A90CBCEEB4DD07 /* Pods */ = {
@@ -613,7 +610,6 @@
 				84D8FF592458F915004F8D38 /* FirebaseConstants.swift in Sources */,
 				84EEC36B2440DF80005616B4 /* QuickRoutineView.swift in Sources */,
 				84EEC36E2440EB0B005616B4 /* MetronomeView.swift in Sources */,
-				8422F9B724400A38005501E1 /* HostingController.swift in Sources */,
 				840C69212450C4A200981D98 /* MultilineTextView.swift in Sources */,
 				84057449244BD4FE00920CEB /* CountdownView.swift in Sources */,
 				8422F98024400902005501E1 /* SceneDelegate.swift in Sources */,

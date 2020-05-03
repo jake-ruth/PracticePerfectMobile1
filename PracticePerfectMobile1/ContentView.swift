@@ -19,16 +19,19 @@ struct ContentView: View {
     
     func getUser() {
         //Promisify this
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
         session.listen()
+        dispatchGroup.leave()
+        dispatchGroup.notify(queue: .main){
         self.loaded = true
-        // Firebase test
-        self.ref.child("users").child("test").setValue(["username" : "TEST"])
+        }
     }
     
     var body: some View {
         Group {
             if (self.loaded == false){
-                Text("loading...")
+                Text("Loading...")
             }
                 
             else if (session.session != nil) {
@@ -69,8 +72,8 @@ extension Color {
     static let test1 = Color("test1")
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environmentObject(SessionStore())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        //ContentView().environmentObject(SessionStore())
+//    }
+//}
