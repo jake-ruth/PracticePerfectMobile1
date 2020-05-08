@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             //window.rootViewController = UIHostingController(rootView: contentView)
             // Changed for light status bar, and firebase
-            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(FirebaseController()).environmentObject(SessionStore())) //Jake changed this
+            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(FirebaseController()).environmentObject(SessionStore()).environmentObject(NavbarSettings())) //Jake changed this
             self.window = window
             window.makeKeyAndVisible()
             window.tintColor = UIColor.white

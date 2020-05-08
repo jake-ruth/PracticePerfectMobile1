@@ -25,6 +25,8 @@ struct PlaySingleRoutineView: View {
     
     
     func initializeState(){
+        
+        
         self.seconds = self.practiceRoutine.practiceItems![self.practiceItemIndex].minutes * 60
         
         self.finishDate = Date() + TimeInterval(self.practiceRoutine.practiceItems![self.practiceItemIndex].minutes * 60)
@@ -155,6 +157,7 @@ struct PlaySingleRoutineView: View {
             })
                 .sheet(isPresented: $showMetronome, content: { MetronomeView()})
         }.navigationBarTitle(Text(self.practiceRoutine.routineTitle!).foregroundColor(Color.white), displayMode: .inline)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 

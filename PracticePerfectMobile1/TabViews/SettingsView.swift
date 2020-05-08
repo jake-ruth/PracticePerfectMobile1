@@ -15,9 +15,7 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
-            
         ZStack {
-            Color.surface.edgesIgnoringSafeArea(.all)
             VStack {
                 
                 List{
@@ -27,7 +25,7 @@ struct SettingsView: View {
                         Image(systemName: "square.and.pencil")
                             .foregroundColor(Color.primary)
                             .font(.system(size: 20, weight: .heavy))
-                    }.padding(.horizontal).listRowBackground(Color.surface)
+                    }.padding(.horizontal)
                     
                     HStack {
                         Toggle("", isOn: $pauseBetweenItems)
@@ -35,8 +33,6 @@ struct SettingsView: View {
                                 ColoredToggleStyle(label: "Pause between items", onColor: Color.primary))
                     }.listRowBackground(Color.surface)
                 }.navigationBarTitle(Text("Settings").foregroundColor(Color.white), displayMode: .inline)
-                
-                Color.surface.edgesIgnoringSafeArea(.all)
                 
                 Button(action: session.signOut) {
                     Text("Sign Out")

@@ -20,6 +20,6 @@ public class FirebaseConstants {
     
     //Get ref for a single practice routine by key
     static func getSingleRoutineRef(key: String) -> DatabaseReference{
-        return rootRef.child("practiceRoutines").child(currentUid ?? "").child(key)
+        return rootRef.child("practiceRoutines").child(currentUid!).child(key)
     }
 }

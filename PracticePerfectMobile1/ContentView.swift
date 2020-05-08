@@ -12,13 +12,13 @@ import FirebaseDatabase
 struct ContentView: View {
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject var firebaseController: FirebaseController
+    @EnvironmentObject var navbarSettings: NavbarSettings
     @State var index = 0
     @State private var loaded: Bool = false
     
     var ref: DatabaseReference! = Database.database().reference()
     
     func getUser() {
-        //Promisify this
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         session.listen()
@@ -36,12 +36,13 @@ struct ContentView: View {
                 
             else if (session.session != nil) {
                 VStack {
+                    
                     ZStack {
                         if (self.index == 0){
                             HomeView()
                         }
                         else if (self.index == 1){
-                            MyRoutinesView().environmentObject(self.firebaseController)
+                            MyRoutinesView().environmentObject(self.firebaseController).environmentObject(self.navbarSettings)
                         }
                         else if (self.index == 2){
                             MetronomeView()
@@ -50,7 +51,9 @@ struct ContentView: View {
                             SettingsView()
                         }
                     }
-                    TabBar(index: $index)
+                        
+                    //Show navigation only when supposed to
+                    self.navbarSettings.navbarVisible == true ? TabBar(index: $index) : nil
                     
                 }.animation(.spring())
                 
